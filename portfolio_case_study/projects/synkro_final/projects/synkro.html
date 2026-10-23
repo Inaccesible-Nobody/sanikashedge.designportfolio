@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Synkro is a service and product design concept connecting small businesses with local events through clearer discovery, participation and stall selection.">
+  <title>Synkro - Sanika Shedge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="synkro.css">
+  <script src="synkro.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="wordmark" href="../../../../index.html">SANIKA SHEDGE<span> / DESIGN PORTFOLIO</span></a>
+    <a class="back-link" href="../../../../index.html#work">Back to selected work <span>↗</span></a>
+  </header>
+
+  <main id="case-study-main">
+    <!-- OVERVIEW / SCROLL-LINKED HERO -->
+    <section class="case-hero hero-scroll section-wrap" id="overview" aria-labelledby="project-title">
+      <div class="hero-sticky">
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="project-kicker">PRODUCT DESIGN · SERVICE DESIGN · MOBILE UX</p>
+            <h1 id="project-title">Synkro</h1>
+            <p class="hero-summary">Connecting small businesses with local events.</p>
+            <div class="hero-description">
+              <p>Finding an event is only the first step. Businesses need enough context to judge whether it is worth attending, while organisers need a clear way to publish details, manage applications and coordinate participation.</p>
+              <p>Synkro explores how both sides could work through one connected platform, including a way to review a site plan and choose a preferred stall before committing.</p>
+            </div>
+            <div class="metadata" aria-label="Project details">
+              <div><span class="meta-label">ROLE</span><p>UI/UX Designer</p></div>
+              <div><span class="meta-label">TOOLS</span><p>Figma · Miro</p></div>
+              <div><span class="meta-label">TIMELINE</span><p>4 weeks</p></div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-phones" aria-label="Two mobile interfaces from Synkro">
+              <figure class="hero-phone hero-phone-left">
+                <div class="phone-shell"><img src="../images/synkro/hero-left.png" alt="Synkro business-side event discovery interface"></div>
+              </figure>
+              <figure class="hero-phone hero-phone-right">
+                <div class="phone-shell"><img src="../images/synkro/hero-right.png" alt="Synkro event detail and registration interface"></div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky index starts after the overview, like the AQI case study. -->
+    <nav class="section-nav" aria-label="Case study sections">
+      <a href="#context">Context</a>
+      <a href="#research">Research</a>
+      <a href="#system">Two sides</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#journey">User flow</a>
+      <a href="#stall">Stall selection</a>
+      <a href="#design">Design process</a>
+      <a href="#final">Final UI</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
+
+    <!-- CONTEXT / PROBLEM -->
+    <section class="content-section section-wrap context-section" id="context">
+      <div class="section-number">01 / CONTEXT</div>
+      <div class="context-layout">
+        <div class="context-visual">
+          <div class="channel-label">INFORMATION ACROSS CHANNELS</div>
+          <div class="channel-list">
+            <span>Social media</span><span>Word of mouth</span><span>WhatsApp</span><span>Direct outreach</span><span>Forms and payments</span><span>Logistics updates</span>
+          </div>
+          <div class="channel-connector"><span>Separate hand-offs</span><i></i><span>Repeated questions</span><i></i><span>Harder comparisons</span></div>
+          <div class="fragmented-roles">
+            <div><span>BUSINESS OWNER</span><strong>Find · Evaluate · Commit</strong></div>
+            <div><span>EVENT ORGANISER</span><strong>Publish · Review · Coordinate</strong></div>
+          </div>
+          <p class="visual-caption">A participation journey spread across channels, rather than a single connected flow.</p>
+        </div>
+        <div class="section-content context-copy">
+          <h2>When event participation depends on scattered information.</h2>
+          <p class="lead">Finding, joining and managing an event can become a chain of separate conversations, forms and decisions.</p>
+          <p>Small businesses may discover events through social media, word of mouth, messaging groups or direct outreach. Details such as audience, location, cost, registration and logistics can be spread across different channels, making opportunities harder to compare before committing.</p>
+          <p class="small-note">The design opportunity was not simply to create another event listing. It was to bring the information and decisions surrounding participation closer together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="content-section section-wrap research-section" id="research">
+      <div class="section-number">02 / RESEARCH</div>
+      <div class="research-layout">
+        <aside class="persona-card" aria-label="Switch between the two Synkro user profiles">
+          <div class="persona-card-heading"><span>USER PROFILES</span><span>02 VIEWS</span></div>
+          <div class="persona-tabs" role="tablist" aria-label="Synkro user profiles">
+            <button class="persona-tab is-active" id="persona-tab-business" role="tab" aria-selected="true" aria-controls="persona-panel-business" data-persona="business" type="button">Business owner</button>
+            <button class="persona-tab" id="persona-tab-organizer" role="tab" aria-selected="false" aria-controls="persona-panel-organizer" data-persona="organizer" type="button">Organiser</button>
+          </div>
+          <div class="persona-panel is-active" id="persona-panel-business" data-persona-panel="business" role="tabpanel" aria-labelledby="persona-tab-business">
+            <span class="persona-role">PRIMARY USER</span>
+            <h3>Mansi Shinde</h3>
+            <p class="persona-meta">19 · Pune · Student + small-business owner</p>
+            <p class="persona-bio">Runs a small resin-art business while studying and looks for local events to showcase and sell her work.</p>
+            <div class="persona-data-grid">
+              <div><span>PAIN POINTS</span><p>Scattered event details, unclear fees and audience fit, last-minute updates.</p></div>
+              <div><span>GOALS</span><p>Reliable listings, broader visibility and enough information before committing.</p></div>
+              <div><span>NEEDS</span><p>Relevant discovery, direct communication and visibility into participation details.</p></div>
+            </div>
+            <div class="persona-note"><span>RESEARCH SCOPE</span><p>Primary research focused on small-business owners. Direct research with event organisers was limited.</p></div>
+          </div>
+          <div class="persona-panel" id="persona-panel-organizer" data-persona-panel="organizer" role="tabpanel" aria-labelledby="persona-tab-organizer" hidden>
+            <span class="persona-role persona-role-organizer">SYSTEM USER</span>
+            <h3>Event organiser</h3>
+            <p class="persona-meta">Creates and manages local events</p>
+            <p class="persona-bio">Needs a structured way to publish an event, review applications, share the site plan and coordinate participants.</p>
+            <div class="persona-data-grid">
+              <div><span>RESPONSIBILITIES</span><p>Create event requirements, manage applications and coordinate stalls.</p></div>
+              <div><span>NEEDS</span><p>Clear information, organised participant records and a central place for updates.</p></div>
+              <div><span>DESIGN RESPONSE</span><p>Create → Publish → Review → Allocate → Coordinate.</p></div>
+            </div>
+            <div class="persona-note persona-note-warm"><span>DESIGN REQUIREMENT</span><p>Organiser-side tasks are system requirements in this concept, not findings validated through direct organiser interviews.</p></div>
+          </div>
+        </aside>
+
+        <div class="research-evidence section-content">
+          <h2>What makes an event worth the commitment?</h2>
+          <p class="lead">The questionnaire focused on how small-business owners discover events, what they need before signing up, and where participation becomes difficult.</p>
+          <div class="evidence-list">
+            <article><span>01</span><div><h3>Fit matters before access.</h3><p>Audience size and location help a business judge whether an event is suitable.</p><strong>DESIGN RESPONSE <b>→</b> Show event context early.</strong></div></article>
+            <article><span>02</span><div><h3>Cost shapes commitment.</h3><p>Participation fees and expected value affect whether an opportunity feels worth pursuing.</p><strong>DESIGN RESPONSE <b>→</b> Make decision-critical details easier to compare.</strong></div></article>
+            <article><span>03</span><div><h3>Registration is not the whole journey.</h3><p>Information, communication and logistics continue to matter after discovery.</p><strong>DESIGN RESPONSE <b>→</b> Connect event details with participation tasks.</strong></div></article>
+          </div>
+          <div class="research-evidence-foot"><span>QUESTIONNAIRE</span><p>Small-business owner responses informed the business-side priorities. No post-launch or usability validation is claimed.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE TWO SIDES -->
+    <section class="content-section section-wrap two-col" id="system">
+      <div class="section-number">03 / TWO SIDES</div>
+      <div class="section-content">
+        <h2>Different goals. One connected system.</h2>
+        <p>Synkro was designed around two sets of responsibilities. The business owner needs to assess an event and manage participation; the organizer needs a structured way to publish information and coordinate the people applying.</p>
+        <div class="two-sided-system">
+          <article class="side-panel business-side">
+            <div class="side-panel-head"><span>01 / BUSINESS OWNER</span><span class="side-mark">↗</span></div>
+            <h3>Choose with more context.</h3>
+            <p>Discover opportunities, compare the details, register, select a preferred stall and keep track of participation.</p>
+            <div class="action-sequence"><span>Discover</span><i>→</i><span>Evaluate</span><i>→</i><span>Participate</span></div>
+          </article>
+          <article class="side-panel organizer-side">
+            <div class="side-panel-head"><span>02 / EVENT ORGANISER</span><span class="side-mark">↗</span></div>
+            <h3>Manage the event in one place.</h3>
+            <p>Create and publish event details, review applications, share the site plan and coordinate participants.</p>
+            <div class="action-sequence"><span>Create</span><i>→</i><span>Manage</span><i>→</i><span>Coordinate</span></div>
+          </article>
+        </div>
+        <p class="small-note">The organizer-side flow is a design response to the needs of the overall system, not a claim that this group was extensively interviewed.</p>
+      </div>
+    </section>
+
+    <!-- INFORMATION ARCHITECTURE -->
+    <section class="content-section section-wrap two-col" id="architecture">
+      <div class="section-number">04 / ARCHITECTURE</div>
+      <div class="section-content">
+        <h2>The structure had to connect both experiences.</h2>
+        <p>The information architecture mapped distinct entry points and tasks for each role, while keeping shared event information and participation records connected beneath them.</p>
+        <figure class="wide-artifact ia-artifact">
+          <button class="artifact-open" type="button" data-lightbox-target="ia-dialog" aria-label="Open the Synkro information architecture diagram at full size">
+            <img src="../images/synkro/ia-detail.jpg" alt="Detailed Synkro information architecture separating the business-owner and organiser experiences while connecting shared event data">
+            <span class="artifact-open-label">OPEN DIAGRAM TO INSPECT ↗</span>
+          </button>
+          <figcaption><span>INFORMATION ARCHITECTURE</span> The detailed map separates the two role-based journeys while keeping their common data and actions connected.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="content-section section-wrap two-col" id="journey">
+      <div class="section-number">05 / USER FLOW</div>
+      <div class="section-content">
+        <h2>From discovery to participation, without losing the thread.</h2>
+        <p class="section-intro-copy">The business and organizer journeys move in parallel, meeting around event information, applications, stall allocation and communication. Select a step to see the task it represents.</p>
+        <div class="journey-interaction">
+          <div class="journey-track-wrap">
+            <span class="journey-role">BUSINESS OWNER</span>
+            <div class="journey-track" role="group" aria-label="Business owner journey steps">
+              <button class="journey-step is-active" type="button" data-flow="discover"><span>01</span><strong>Discover</strong></button>
+              <i>→</i>
+              <button class="journey-step" type="button" data-flow="evaluate"><span>02</span><strong>Evaluate</strong></button>
+              <i>→</i>
+              <button class="journey-step" type="button" data-flow="register"><span>03</span><strong>Register</strong></button>
+              <i>→</i>
+              <button class="journey-step" type="button" data-flow="select"><span>04</span><strong>Choose stall</strong></button>
+              <i>→</i>
+              <button class="journey-step" type="button" data-flow="participate"><span>05</span><strong>Participate</strong></button>
+            </div>
+          </div>
+          <div class="journey-detail" id="journey-detail" aria-live="polite"><span>STEP 01</span><p>Discover events through a more structured, comparable listing rather than relying on scattered sources alone.</p></div>
+          <div class="journey-organizer">
+            <span class="journey-role">ORGANISER FLOW</span>
+            <div class="organizer-chain"><span>Create event</span><i>→</i><span>Publish details</span><i>→</i><span>Review applications</span><i>→</i><span>Allocate stalls</span><i>→</i><span>Coordinate</span></div>
+          </div>
+          <div class="shared-layer"><span>SHARED LAYER</span><strong>Event details · Applications · Site plan · Communication</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STALL SELECTION / SIGNATURE DESIGN DECISION -->
+    <section class="content-section section-wrap stall-section" id="stall">
+      <div class="section-number">06 / STALL SELECTION</div>
+      <div class="stall-feature-layout">
+        <div class="stall-visual-column">
+          <div class="stall-demo">
+            <div class="stall-demo-head"><span>INTERACTIVE CONCEPT</span><span>SELECT AN AVAILABLE STALL</span></div>
+            <div class="stall-plan-canvas" aria-label="Interactive exhibition floor plan with selectable stall areas">
+              <img src="../images/synkro/exhibition-hall-plan.png" alt="Exhibition hall plan with numbered stall locations">
+              <div class="stall-hotspots" aria-label="Select an available stall">
+                <button class="plan-stall available" data-stall="01" style="left:34%;top:11%;width:8%;height:9%;" type="button" aria-label="Select stall 01">01</button>
+                <button class="plan-stall booked" data-stall="02" style="left:43%;top:11%;width:8%;height:9%;" type="button" aria-label="Stall 02, already booked">02</button>
+                <button class="plan-stall available" data-stall="03" style="left:52%;top:11%;width:8%;height:9%;" type="button" aria-label="Select stall 03">03</button>
+                <button class="plan-stall booked" data-stall="04" style="left:61%;top:11%;width:8%;height:9%;" type="button" aria-label="Stall 04, already booked">04</button>
+                <button class="plan-stall available" data-stall="05" style="left:70%;top:11%;width:8%;height:9%;" type="button" aria-label="Select stall 05">05</button>
+                <button class="plan-stall available" data-stall="06" style="left:16%;top:25%;width:8%;height:10%;" type="button" aria-label="Select stall 06">06</button>
+                <button class="plan-stall available" data-stall="07" style="left:27%;top:25%;width:8%;height:10%;" type="button" aria-label="Select stall 07">07</button>
+                <button class="plan-stall booked" data-stall="08" style="left:38%;top:25%;width:8%;height:10%;" type="button" aria-label="Stall 08, already booked">08</button>
+                <button class="plan-stall available" data-stall="09" style="left:50%;top:25%;width:8%;height:10%;" type="button" aria-label="Select stall 09">09</button>
+                <button class="plan-stall booked" data-stall="10" style="left:62%;top:25%;width:8%;height:10%;" type="button" aria-label="Stall 10, already booked">10</button>
+                <button class="plan-stall available" data-stall="11" style="left:75%;top:25%;width:8%;height:10%;" type="button" aria-label="Select stall 11">11</button>
+                <button class="plan-stall available" data-stall="12" style="left:15%;top:48%;width:8%;height:10%;" type="button" aria-label="Select stall 12">12</button>
+                <button class="plan-stall booked" data-stall="13" style="left:28%;top:48%;width:8%;height:10%;" type="button" aria-label="Stall 13, already booked">13</button>
+                <button class="plan-stall available is-selected" data-stall="14" style="left:41%;top:48%;width:8%;height:10%;" type="button" aria-label="Select stall 14">14</button>
+                <button class="plan-stall available" data-stall="15" style="left:54%;top:48%;width:8%;height:10%;" type="button" aria-label="Select stall 15">15</button>
+                <button class="plan-stall booked" data-stall="16" style="left:67%;top:48%;width:8%;height:10%;" type="button" aria-label="Stall 16, already booked">16</button>
+                <button class="plan-stall available" data-stall="17" style="left:12%;top:67%;width:8%;height:9%;" type="button" aria-label="Select stall 17">17</button>
+                <button class="plan-stall available" data-stall="18" style="left:25%;top:67%;width:8%;height:9%;" type="button" aria-label="Select stall 18">18</button>
+                <button class="plan-stall available" data-stall="19" style="left:38%;top:67%;width:8%;height:9%;" type="button" aria-label="Select stall 19">19</button>
+                <button class="plan-stall booked" data-stall="20" style="left:58%;top:67%;width:8%;height:9%;" type="button" aria-label="Stall 20, already booked">20</button>
+              </div>
+            </div>
+            <div class="stall-legend" aria-label="Stall availability legend">
+              <span><i class="legend-available"></i> Available</span><span><i class="legend-booked"></i> Booked</span><span><i class="legend-selected"></i> Selected</span>
+            </div>
+            <p class="stall-demo-detail" id="stall-demo-detail" aria-live="polite">Stall 14 is selected as your preferred location.</p>
+            <button class="stall-confirm" type="button">Confirm preference <span>↗</span></button>
+            <p class="demo-note">Interactive concept only. No reservation is created.</p>
+          </div>
+          <figure class="stall-phone-figure">
+            <div class="phone-shell compact-phone"><img src="../images/synkro/final-stall-select.png" alt="Synkro mobile interface showing the Select table screen"></div>
+            <figcaption><span>MOBILE UI</span> Select table · final screen</figcaption>
+          </figure>
+        </div>
+        <div class="section-content stall-copy">
+          <h2>Make physical placement part of the digital decision.</h2>
+          <p class="lead">Participation does not end at registration. Where a stall sits can affect how visible a business is during an event.</p>
+          <p>Synkro treats stall selection as part of the decision rather than something revealed only after a business commits. Organisers publish an event layout and businesses can inspect available positions before choosing a preference.</p>
+          <div class="stall-context-note"><span>WHY THIS MATTERS</span><p>The project context included the risk of unclear middleman arrangements and poor stall placement. Making the plan visible is intended to give businesses more information and control before committing.</p></div>
+          <p class="small-note">The floor-plan interaction is a portfolio demonstration of the selection logic; it is not connected to a booking backend.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN PROCESS -->
+    <section class="content-section section-wrap two-col" id="design">
+      <div class="section-number">07 / DESIGN PROCESS</div>
+      <div class="section-content">
+        <h2>From structure to a visual language.</h2>
+        <p>The work moved from mapping the two sides of the service to exploring screen hierarchy and then developing a visual system. The interface uses purple as the core brand colour, supported by lavender and coral accents to distinguish actions and information without making every screen compete for attention.</p>
+        <div class="screen-rail process-screen-rail" aria-label="Selected wireframe screens">
+          <figure class="screen-figure"><div class="phone-shell screen-shell"><img src="../images/synkro/process-home.png" alt="Low-fidelity home screen exploring event discovery hierarchy"></div><figcaption><span>01 / DISCOVER</span> Organise event listings and entry points.</figcaption></figure>
+          <figure class="screen-figure"><div class="phone-shell screen-shell"><img src="../images/synkro/process-search.png" alt="Low-fidelity search screen for event discovery"></div><figcaption><span>02 / SEARCH</span> Explore filters and comparable information.</figcaption></figure>
+          <figure class="screen-figure"><div class="phone-shell screen-shell"><img src="../images/synkro/process-event.png" alt="Low-fidelity event details and registration screen"></div><figcaption><span>03 / EVENT DETAIL</span> Bring relevant information closer to commitment.</figcaption></figure>
+          <figure class="screen-figure"><div class="phone-shell screen-shell"><img src="../images/synkro/process-create.png" alt="Low-fidelity organiser Create Event screen"></div><figcaption><span>04 / CREATE</span> Structure the organiser's publishing workflow.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL EXPERIENCE -->
+    <section class="content-section section-wrap two-col" id="final">
+      <div class="section-number">08 / FINAL UI</div>
+      <div class="section-content">
+        <h2>Two sides of one service, shown through the interface.</h2>
+        <p>These screens show the business-side discovery and evaluation experience alongside the organiser tools for managing events and selecting a table layout.</p>
+        <div class="screen-rail final-screen-rail" aria-label="Selected final Synkro mobile screens">
+          <figure class="screen-figure"><div class="phone-shell screen-shell"><img src="../images/synkro/final-home.png" alt="Final Synkro home screen with event discovery listings"></div><figcaption><span>01 / BUSINESS</span> Discover and compare event opportunities.</figcaption></figure>
+          <figure class="screen-figure"><div class="phone-shell screen-shell"><img src="../images/synkro/final-event.png" alt="Final Synkro event details screen with registration action"></div><figcaption><span>02 / EVENT DETAIL</span> Review the opportunity before registering.</figcaption></figure>
+          <figure class="screen-figure"><div class="phone-shell screen-shell"><img src="../images/synkro/final-stall-select.png" alt="Final Synkro Select table screen showing event layout and available table locations"></div><figcaption><span>03 / STALL CHOICE</span> See location options before committing.</figcaption></figure>
+          <figure class="screen-figure"><div class="phone-shell screen-shell"><img src="../images/synkro/final-organizer-dashboard.png" alt="Final Synkro organiser dashboard with event and participant metrics"></div><figcaption><span>04 / ORGANISER</span> Manage event activity and participant details.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFLECTION / RELATED WORK -->
+    <section class="content-section section-wrap two-col reflection-section" id="reflection">
+      <div class="section-number">09 / REFLECTION</div>
+      <div class="section-content">
+        <h2>The hard part was designing the relationship between screens.</h2>
+        <p class="lead">Synkro pushed me to think beyond individual interfaces and consider how separate tasks connect across two user groups.</p>
+        <div class="reflection-grid">
+          <article><span>WHAT I LEARNED</span><p>A two-sided service needs more than two sets of screens. Shared information, hand-offs and timing have to make sense across the whole journey.</p></article>
+          <article><span>WHAT REMAINS TO TEST</span><p>The concept has not been validated through live event participation. The discovery, stall-selection and organizer workflows would need to be tested with both groups.</p></article>
+        </div>
+        <p class="small-note">Intended outcomes, not measured impact: Synkro aims to give businesses clearer event context and more control over participation, while helping organizers coordinate information and applications more consistently.</p>
+      </div>
+    </section>
+
+    <section class="related-work section-wrap" aria-labelledby="more-projects-heading">
+      <div class="related-intro">
+        <span class="section-number">EXPLORE MORE WORK</span>
+        <h2 id="more-projects-heading">More work</h2>
+        <p>Other projects across digital experiences, research and systems design.</p>
+      </div>
+      <div class="related-list">
+        <a href="../../Jamalpur/jamalpur.html" class="related-project"><span>01 / FIELD RESEARCH · SYSTEMS</span><strong>Jamalpur Flower Market</strong><i>↗</i></a>
+        <a href="../../Aqi/aqi.html" class="related-project"><span>02 / INFORMATION DESIGN · PUBLIC HEALTH</span><strong>Humanizing AQI</strong><i>↗</i></a>
+        <a href="../../Viral%20Siyappa/viral-siyappa.html" class="related-project"><span>03 / GAME DESIGN · SYSTEMS</span><strong>Viral Siyappa</strong><i>↗</i></a>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="artifact-dialog" id="ia-dialog" aria-labelledby="ia-dialog-title">
+    <div class="artifact-dialog-head"><p id="ia-dialog-title">Synkro · Information architecture</p><button type="button" class="artifact-dialog-close" aria-label="Close diagram">Close ×</button></div>
+    <img src="../images/synkro/ia-detail.jpg" alt="Expanded detailed Synkro information architecture diagram">
+    <p class="artifact-dialog-note">Detailed view. Use Escape or Close to return to the case study.</p>
+  </dialog>
+
+  <footer class="site-footer">
+    <a class="wordmark" href="../../../../index.html">SANIKA SHEDGE<span> / DESIGN PORTFOLIO</span></a>
+    <a href="#top" class="footer-top">Back to top ↑</a>
+  </footer>
+  <a href="#top" class="back-top" aria-label="Back to top">↑</a>
+</body>
+</html>

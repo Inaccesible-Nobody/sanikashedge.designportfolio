@@ -1,0 +1,631 @@
+/*
+  Selected Client Work — focused homepage style update
+  Add this file AFTER your existing style.css, or copy these rules to
+  the very bottom of style.css. It intentionally styles only this section.
+*/
+
+.client-work {
+    margin-top: clamp(64px, 7vw, 104px);
+    padding-top: 28px;
+    border-top: 1px solid #d8d6cf;
+}
+
+.client-work-intro {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.9fr) minmax(260px, 1fr);
+    gap: clamp(24px, 5vw, 72px);
+    align-items: start;
+}
+
+.client-work-intro > span {
+    font-size: 11px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #66706a;
+}
+
+.client-work-intro p {
+    max-width: 370px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #66706a;
+}
+
+.client-work-list {
+    margin-top: clamp(36px, 4.2vw, 56px);
+    border-top: 1px solid #d8d6cf;
+}
+
+.client-work-item {
+    border-bottom: 1px solid #d8d6cf;
+}
+
+.client-work-trigger {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 54px minmax(200px, 1fr) minmax(190px, 0.7fr) 24px;
+    align-items: center;
+    gap: clamp(14px, 2vw, 30px);
+    padding: 23px 0;
+    border: 0;
+    background: transparent;
+    color: #111111;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.client-work-trigger:hover .client-work-name {
+    color: #525d50;
+}
+
+.client-work-trigger:focus-visible {
+    outline: 2px solid #66706a;
+    outline-offset: 5px;
+}
+
+.client-work-number {
+    font-size: 11px;
+    color: #66706a;
+    letter-spacing: 0.08em;
+}
+
+.client-work-name {
+    font-size: clamp(25px, 2.4vw, 34px);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    transition: color 0.2s ease;
+}
+
+.client-work-meta {
+    justify-self: start;
+    font-size: 10px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #66706a;
+}
+
+.client-work-indicator {
+    justify-self: end;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 400;
+    color: #66706a;
+    transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.client-work-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.35s ease, opacity 0.25s ease;
+}
+
+.client-work-details > div {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.client-work-detail-copy {
+    max-width: 680px;
+    padding: 0 40px 0 54px;
+}
+
+.client-work-detail-copy p {
+    max-width: 560px;
+    margin: 0;
+    padding-bottom: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #454743;
+}
+
+.client-work-deliverables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    padding-bottom: 24px;
+    font-size: 10px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #66706a;
+}
+
+.client-work-item.is-open .client-work-details {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.client-work-item.is-open .client-work-indicator {
+    transform: rotate(45deg);
+    color: #111111;
+}
+
+@media (max-width: 760px) {
+    .client-work {
+        margin-top: 72px;
+        padding-top: 24px;
+    }
+
+    .client-work-intro {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .client-work-intro p {
+        max-width: 320px;
+    }
+
+    .client-work-list {
+        margin-top: 34px;
+    }
+
+    .client-work-trigger {
+        grid-template-columns: 30px minmax(0, 1fr) 24px;
+        gap: 12px;
+        padding: 20px 0;
+    }
+
+    .client-work-name {
+        font-size: clamp(23px, 6vw, 28px);
+    }
+
+    .client-work-meta {
+        display: none;
+    }
+
+    .client-work-detail-copy {
+        padding: 0 10px 0 42px;
+    }
+
+    .client-work-detail-copy p {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .client-work-trigger,
+    .client-work-name,
+    .client-work-indicator,
+    .client-work-details {
+        transition: none !important;
+    }
+}
+/* ========================================
+   CLIENT WORK — HORIZONTAL GALLERIES
+======================================== */
+
+.client-work-details .client-work-detail-inner {
+    min-width: 0;
+    padding: 0 0 32px 70px;
+}
+
+.client-work-details .client-work-detail-copy {
+    padding-left: 0;
+    max-width: 560px;
+}
+
+.client-gallery {
+    width: 100%;
+    min-width: 0;
+    margin-top: 10px;
+}
+
+.client-gallery-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0 12px;
+    border-top: 1px solid #d8d6cf;
+
+    color: #66706a;
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.client-gallery-track {
+    display: grid;
+    grid-auto-columns: clamp(230px, 29vw, 370px);
+    grid-auto-flow: column;
+    gap: 16px;
+
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 16px;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1px;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: #aaa69b #e8e6df;
+    cursor: grab;
+    user-select: none;
+}
+
+.client-gallery-track.is-dragging,
+.client-card-slides.is-dragging,
+.client-image-dialog-slides.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+}
+
+.client-gallery-track:focus-visible {
+    outline: 2px solid #3349a2;
+    outline-offset: 4px;
+}
+
+.client-gallery-track::-webkit-scrollbar {
+    height: 5px;
+}
+
+.client-gallery-track::-webkit-scrollbar-track {
+    background: #e8e6df;
+}
+
+.client-gallery-track::-webkit-scrollbar-thumb {
+    background: #aaa69b;
+}
+
+.client-gallery-card {
+    min-width: 0;
+    margin: 0;
+    scroll-snap-align: start;
+}
+
+.client-gallery-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    background: #eeece6;
+    border: 1px solid #d8d6cf;
+    cursor: zoom-in;
+}
+
+.client-gallery-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.client-gallery-media img:focus-visible {
+    outline: 2px solid #66706a;
+    outline-offset: -3px;
+}
+
+.client-gallery-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    color: #454743;
+}
+
+.client-gallery-placeholder span {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: #777773;
+}
+
+.client-gallery-placeholder strong {
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+}
+
+.client-gallery-card figcaption {
+    padding-top: 10px;
+    color: #66706a;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.client-card-carousel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 7px;
+}
+
+.client-card-slides {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+}
+
+.client-card-slides::-webkit-scrollbar {
+    display: none;
+}
+
+.client-card-slides:focus-visible,
+.client-card-dots button:focus-visible {
+    outline: 2px solid #66706a;
+    outline-offset: 3px;
+}
+
+.client-card-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.client-card-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.client-card-carousel .client-card-dots {
+    cursor: default;
+}
+
+.client-card-dots {
+    display: flex;
+    flex: 0 0 17px;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 7px;
+}
+
+.client-card-dots button {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    border: 1px solid #66706a;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.client-card-dots button[aria-current="true"] {
+    background: #66706a;
+}
+
+.client-image-dialog {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    width: min(94vw, 1400px);
+    max-width: none;
+    max-height: 94vh;
+    margin: auto;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    color: #f6f5f0;
+}
+
+.client-image-dialog:not([open]) {
+    display: none;
+}
+
+.client-image-dialog::backdrop {
+    background: rgb(255 255 255 / 16%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.client-image-dialog-content {
+    position: relative;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    gap: 12px;
+    width: 100%;
+    max-height: 94vh;
+    padding: 34px 24px 18px;
+    background: transparent;
+}
+
+.client-image-dialog-close,
+.client-image-dialog-card-previous,
+.client-image-dialog-card-next {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgb(32 35 31 / 22%);
+    border-radius: 50%;
+    background: rgb(255 255 255 / 90%);
+    box-shadow: 0 1px 8px rgb(0 0 0 / 14%);
+    color: #20231f;
+    font: inherit;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.client-image-dialog-close {
+    top: 8px;
+    right: 8px;
+    font-size: 24px;
+}
+
+.client-image-dialog-card-previous,
+.client-image-dialog-card-next {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+}
+
+.client-image-dialog-card-previous {
+    left: 2px;
+}
+
+.client-image-dialog-card-next {
+    right: 2px;
+}
+
+.client-image-dialog-close:focus-visible,
+.client-image-dialog-card-previous:focus-visible,
+.client-image-dialog-card-next:focus-visible,
+.client-image-dialog-dots button:focus-visible {
+    outline: 2px solid #3349a2;
+    outline-offset: 3px;
+}
+
+.client-image-dialog-dots button:focus-visible {
+    outline: 2px solid #3349a2;
+    outline-offset: 3px;
+}
+
+.client-image-dialog-slides {
+    grid-row: 1;
+    display: flex;
+    min-width: 0;
+    min-height: min(68vh, 760px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #aaa69b #343832;
+    cursor: grab;
+    user-select: none;
+}
+
+.client-image-dialog-slide {
+    display: flex;
+    flex: 0 0 100%;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+.client-image-dialog-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: min(68vh, 760px);
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.client-image-dialog-dots {
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.client-image-dialog-dots:empty {
+    display: none;
+}
+
+.client-image-dialog-dots button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 1px solid #66706a;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.client-image-dialog-dots button[aria-current="true"] {
+    background: #66706a;
+}
+
+.client-image-dialog-caption {
+    grid-row: 3;
+    margin: 0;
+    color: #333831;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Smaller screens */
+
+@media (max-width: 700px) {
+    .client-work-details .client-work-detail-inner {
+        padding-left: 44px;
+    }
+
+    .client-gallery-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .client-gallery-track {
+        grid-auto-columns: minmax(0, 78vw);
+        grid-auto-columns: 78vw;
+        gap: 12px;
+    }
+
+    .client-image-dialog {
+        width: 100vw;
+        max-height: 100dvh;
+    }
+
+    .client-image-dialog-content {
+        max-height: 94dvh;
+        padding: 44px 28px 16px;
+    }
+
+    .client-image-dialog-slides {
+        min-height: 65dvh;
+    }
+
+    .client-image-dialog-slide img {
+        max-height: 65dvh;
+    }
+
+    .client-image-dialog-card-previous {
+        left: 0;
+    }
+
+    .client-image-dialog-card-next {
+        right: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .client-gallery-track {
+        scroll-behavior: auto;
+    }
+
+    .client-card-slides {
+        scroll-behavior: auto;
+    }
+}
