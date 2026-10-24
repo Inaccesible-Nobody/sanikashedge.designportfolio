@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#dededc">
+    <meta name="description" content="A little about Sanika Shedge, an interaction designer interested in people, systems, research, and thoughtful digital and physical experiences.">
+    <title>About Sanika Shedge — Interaction Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="about-entrance-v10.css">
+</head>
+<body class="about-page">
+    <header class="nav">
+        <a href="index.html#home" class="logo">SANIKA SHEDGE</a>
+        <nav aria-label="Main navigation">
+            <a href="about.html" aria-current="page">About</a>
+            <a href="index.html#work">Work</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-canvas" id="about" aria-labelledby="about-name">
+            <div class="about-copy">
+                <span class="about-kicker">I am</span>
+                <h1 class="about-name" id="about-name">Sanika</h1>
+                <p class="about-role">Interaction Designer</p>
+                <div class="about-bio">
+                    <p>I'm a designer who likes to understand things before figuring out how to make them better. I'm curious about people, their behaviours, and the systems they navigate. I enjoy researching, asking questions, and turning what I learn into interfaces, interactions, visuals, and experiences.</p>
+                    <p>My approach sits somewhere between systems thinking and creative exploration. I like looking at the bigger picture while paying attention to the finer details, understanding why things work the way they do and how they could work better.</p>
+                    <p>I'm working towards becoming a versatile designer who can bring together research, strategy, interaction, and visual design to create thoughtful, meaningful experiences.</p>
+                </div>
+                <span class="about-principle">Curious by default · Thoughtful by design</span>
+            </div>
+
+            <img class="about-portrait" src="Images/about/sanika-portrait.png" alt="Sanika Shedge" fetchpriority="high">
+
+            <div class="about-object about-object--music" data-about-object>
+                <button class="about-object-button music-trigger" type="button" aria-expanded="false" aria-controls="music-panel" aria-label="Open Sanika's Spotify playlist">
+                    <img class="about-object-img" src="Images/about/turntable.webp" alt="Mint green record player with a black vinyl record" loading="eager">
+                </button>
+                <span class="object-label">a soundtrack, always</span>
+                <section class="about-panel music-panel" id="music-panel" aria-label="Sanika's playlist" aria-hidden="true">
+                    <div class="about-panel-head">
+                        <div><h2>Currently in rotation</h2><p>A playlist for whatever the day turns into.</p></div>
+                        <button class="about-panel-close music-panel-close" type="button" aria-label="Close playlist">×</button>
+                    </div>
+                    <iframe title="Sanika's Spotify playlist" data-src="https://open.spotify.com/embed/playlist/37i9dQZF1Epprse8OKsYBE?utm_source=generator&amp;si=c9b439e02f95455e" loading="lazy" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </section>
+            </div>
+
+            <div class="about-object about-object--moka" data-about-object>
+                <button class="about-object-button moka-trigger" type="button" aria-expanded="false" aria-controls="moka-caption" aria-label="Make the moka pot brew coffee">
+                    <img class="about-object-img" src="Images/about/moka-pot.webp" alt="Worn silver moka pot" loading="eager">
+                    <svg class="moka-steam" viewBox="0 0 100 60" aria-hidden="true"><path d="M25 55 C4 36 42 31 24 8"/><path d="M51 58 C29 38 69 28 50 4"/><path d="M76 55 C58 37 91 27 75 9"/></svg>
+                </button>
+                <p class="moka-caption" id="moka-caption" aria-hidden="true">Brewing your coffee!</p>
+            </div>
+
+            <div class="about-object about-object--tech" data-about-object>
+                <section class="about-panel tech-sheet" id="tech-sheet" aria-label="Technical skills" aria-hidden="true">
+                    <div class="about-panel-head">
+                        <div><h2>Tech stack</h2><p>Tools I've used and know.</p></div>
+                        <button class="about-panel-close tech-sheet-close" type="button" aria-label="Close tech stack">×</button>
+                    </div>
+                    <ul class="tech-list">
+                        <li><span class="tech-mark">F</span><span>Figma</span></li>
+                        <li><span class="tech-mark">U</span><span>Unity</span></li>
+                        <li><span class="tech-mark">Ps</span><span>Photoshop</span></li>
+                        <li><span class="tech-mark">Ad</span><span>Adobe tools</span></li>
+                        <li><span class="tech-mark">Ae</span><span>After Effects</span></li>
+                        <li><span class="tech-mark">Bl</span><span>Blender</span></li>
+                        <li><span class="tech-mark">Ar</span><span>Arduino</span></li>
+                        <li><span class="tech-mark">Cd</span><span>CorelDRAW</span></li>
+                        <li><span class="tech-mark">DR</span><span>DaVinci Resolve</span></li>
+                        <li><span class="tech-mark">Mi</span><span>Miro</span></li>
+                        <li><span class="tech-mark">Fr</span><span>Framer</span></li>
+                        <li><span class="tech-mark">VS</span><span>Visual Studio Code</span></li>
+                    </ul>
+                </section>
+                <button class="about-object-button tech-folder-trigger" type="button" aria-expanded="false" aria-controls="tech-sheet" aria-label="Open technical skills folder">
+                    <span class="folder-label">Tech stack</span>
+                    <span class="folder-preview">A few tools I use to think, make, test, and tinker.</span>
+                </button>
+            </div>
+
+            <div class="about-object about-object--books" data-about-object>
+                <section class="about-panel books-panel" id="books-panel" aria-label="Book recommendations" aria-hidden="true">
+                    <div class="about-panel-head">
+                        <div><h2>The reading pile</h2><p>Books worth making room for.</p></div>
+                        <button class="about-panel-close books-panel-close" type="button" aria-label="Close book recommendations">×</button>
+                    </div>
+                    <ol class="book-list">
+                        <li>The Silent Patient</li>
+                        <li>Verity</li>
+                        <li>The Housemaid</li>
+                        <li>The Red Door</li>
+                        <li>Hidden Hindu</li>
+                        <li>The Girl on the Train</li>
+                        <li>Gone Girl</li>
+                        <li>Ella Minnow Pea</li>
+                    </ol>
+                </section>
+                <button class="about-object-button books-trigger" type="button" aria-expanded="false" aria-controls="books-panel" aria-label="Show book recommendations">
+                    <img class="about-object-img" src="Images/about/book-stack.webp" alt="A casually stacked pile of books" loading="eager">
+                </button>
+                <span class="object-label">the ever-growing reading pile</span>
+            </div>
+
+            <div class="about-object about-object--pudding" data-about-object>
+                <button class="about-object-button pudding-trigger" type="button" aria-label="Give the caramel custard a little tilt">
+                    <img class="about-object-img" src="Images/about/caramel-custard.webp" alt="Caramel custard on a ceramic plate" loading="eager">
+                </button>
+            </div>
+
+            <div class="about-object about-object--connect">
+                <button class="connect-stamp" type="button" aria-haspopup="dialog" aria-controls="postcard-dialog" aria-label="Want to connect? Open a postcard to send Sanika a message">
+                    <span class="stamp-perforations" aria-hidden="true">
+                        <span class="wax-seal"><img src="Images/about/coffee-bean-wax-seal.webp" alt="" loading="eager"></span>
+                        <span class="connect-label">want to connect</span>
+                    </span>
+                </button>
+            </div>
+
+        </section>
+
+        <dialog class="postcard-dialog" id="postcard-dialog" aria-labelledby="postcard-title">
+            <div class="postcard-card">
+                <button class="postcard-close" type="button" aria-label="Close postcard">×</button>
+                <div class="postcard-frontmatter">
+                    <h2 id="postcard-title">POSTCARD</h2>
+                    <div class="postcard-stamp-mini" aria-hidden="true">
+                        <img src="Images/about/sanika-logo-stamp.png" alt="" loading="lazy">
+                        <span class="stamp-cancel-lines"></span>
+                        <span class="stamp-country">POSTAGE</span>
+                    </div>
+                </div>
+                <p class="postcard-note">A little note from you to me.</p>
+                <form class="postcard-form" action="https://formsubmit.co/REPLACE_WITH_YOUR_EMAIL" method="POST">
+                    <input type="hidden" name="_subject" value="A postcard from your portfolio">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="true">
+                    <div class="postcard-sender-fields">
+                        <label for="postcard-name">From / your name</label>
+                        <input id="postcard-name" name="name" type="text" placeholder="your name" autocomplete="name" required maxlength="100">
+                        <label for="postcard-email">Email / your email address</label>
+                        <input id="postcard-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required maxlength="180">
+                    </div>
+                    <div class="postcard-message-field">
+                        <label for="postcard-message">Your message</label>
+                        <textarea id="postcard-message" name="message" placeholder="Write me a little note..." rows="5" required maxlength="3000"></textarea>
+                        <button class="postcard-send" type="submit">Send postcard ↗</button>
+                        <p class="postcard-form-note">Your note will arrive by email once the form is connected.</p>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+    </main>
+
+    <dialog class="command-palette" id="command-palette" aria-label="Keyword search">
+        <div class="command-palette-panel">
+            <label class="command-palette-search-wrap" for="command-palette-search">
+                <span class="command-search-icon" aria-hidden="true">⌕</span>
+                <input id="command-palette-search" type="search" placeholder="Search projects, pages, or keywords…" autocomplete="off" spellcheck="false" aria-label="Search projects, pages, or keywords">
+                <kbd>ESC</kbd>
+            </label>
+
+            <div class="command-palette-scroll" id="command-palette-scroll">
+                <section class="command-group" data-command-group aria-labelledby="command-pages-label">
+                    <h2 class="command-palette-group-title" id="command-pages-label">PAGES & SECTIONS</h2>
+                    <div class="command-entry-list" role="listbox" aria-label="Pages and sections">
+                        <a class="command-palette-item" role="option" aria-selected="false" href="index.html#home" data-command-entry data-kind="page" data-search="home landing start top">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Home</strong><small>Back to the beginning</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="about.html" data-command-entry data-kind="page" data-search="about introduction profile bio sanika">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>About</strong><small>A little context</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="index.html#work" data-command-entry data-kind="page" data-search="selected work projects portfolio gallery">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Selected work</strong><small>Four featured projects</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="index.html#client-work" data-command-entry data-kind="page" data-search="client work aarambh socials bhavya true harvest branding packaging print social media">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Client work</strong><small>Selected studio and brand work</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="index.html#contact" data-command-entry data-kind="page" data-search="contact email phone linkedin get in touch">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Contact</strong><small>Start a conversation</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="docs/Resume.pdf" target="_blank" rel="noopener" data-command-entry data-kind="page" data-search="resume cv pdf experience download">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Resume</strong><small>Open the PDF in a new tab</small></span><span class="command-item-type">PDF</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="command-group" data-command-group data-command-projects-group aria-labelledby="command-projects-label" hidden>
+                    <h2 class="command-palette-group-title" id="command-projects-label">PROJECTS</h2>
+                    <div class="command-entry-list" role="listbox" aria-label="Projects">
+                        <a class="command-palette-item" role="option" aria-selected="false" href="portfolio_case_study/projects/synkro_final/projects/synkro.html" data-command-entry data-kind="project" data-tags="product design ui ux service design research interaction design" data-search="synkro event discovery vendor platform interface interaction product design ui ux service design research">
+                            <span class="command-item-index">01</span><span class="command-item-copy"><strong>Synkro</strong><small>UI/UX · Service design</small></span><span class="command-item-type">PROJECT</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="portfolio_case_study/projects/Jamalpur/jamalpur.html" data-command-entry data-kind="project" data-tags="research systems design field study service design information design" data-search="jamalpur flower market research systems field study informal vendors service design information design">
+                            <span class="command-item-index">02</span><span class="command-item-copy"><strong>Jamalpur Flower Market</strong><small>Research · Systems design</small></span><span class="command-item-type">PROJECT</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="portfolio_case_study/projects/Aqi/aqi.html" data-command-entry data-kind="project" data-tags="data visualisation research ui ux information design air quality" data-search="humanizing aqi air quality information ux research data environment data visualisation ui information design">
+                            <span class="command-item-index">03</span><span class="command-item-copy"><strong>Humanizing AQI</strong><small>Information · UX · Research</small></span><span class="command-item-type">PROJECT</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="portfolio_case_study/projects/Viral%20Siyappa/viral-siyappa.html" data-command-entry data-kind="project" data-tags="game design research systems design information design interaction design misinformation" data-search="viral siyappa game board game misinformation systems design research information design interaction design">
+                            <span class="command-item-index">04</span><span class="command-item-copy"><strong>Viral Siyappa</strong><small>Game design · Systems</small></span><span class="command-item-type">PROJECT</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="command-group" data-command-group aria-labelledby="command-keywords-label">
+                    <h2 class="command-palette-group-title" id="command-keywords-label">KEYWORDS</h2>
+                    <div class="command-keyword-list" role="listbox" aria-label="Browse by project keyword">
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Data Visualisation" data-search="data visualisation data visualization charts air quality"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Data Visualisation</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Product Design" data-search="product design product development industrial"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Product Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Research" data-search="research user research field study discovery"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Research</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Systems Design" data-search="systems design systems thinking ecosystem"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Systems Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="UI" data-search="ui interface visual interface interface design"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>UI</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="UX" data-search="ux user experience usability"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>UX</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Field Study" data-search="field study fieldwork ethnography market vendors"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Field Study</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Information Design" data-search="information design data information visualisation"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Information Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Game Design" data-search="game design board game gameplay"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Game Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Interaction Design" data-search="interaction design interaction experience"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Interaction Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Misinformation" data-search="misinformation viral siyappa media literacy"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Misinformation</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Air Quality" data-search="air quality aqi pollution environment"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Air Quality</span></button>
+                    </div>
+                </section>
+
+                <p class="command-palette-empty" id="command-palette-empty" hidden>No matches. Try a project name, page, or keyword.</p>
+            </div>
+
+            <div class="command-palette-footer" aria-hidden="true">
+                <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+                <span><kbd>↵</kbd> open / choose keyword</span>
+                <span><kbd>esc</kbd> close</span>
+            </div>
+        </div>
+    </dialog>
+    <script src="script.js"></script>
+    <script src="about.js"></script>
+</body>
+</html>

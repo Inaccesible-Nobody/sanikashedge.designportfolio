@@ -16,15 +16,73 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="client-work-section.css">
+
+    <script>
+        (function () {
+            try {
+                var hasSeenIntro = sessionStorage.getItem("sanika-portfolio-intro-seen");
+                var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                if (!hasSeenIntro && !prefersReducedMotion) {
+                    document.documentElement.classList.add("show-portfolio-boot");
+                    sessionStorage.setItem("sanika-portfolio-intro-seen", "1");
+                }
+            } catch (error) {
+                // If session storage is unavailable, the portfolio still loads normally.
+            }
+        })();
+    </script>
 </head>
 
 <body>
+
+    <!-- First-visit boot ritual. Content remains underneath and is ready as the intro ends. -->
+    <div class="portfolio-boot" id="portfolio-boot" aria-label="Portfolio introduction" role="status">
+        <div class="portfolio-boot-inner">
+            <p class="portfolio-boot-eyebrow">BEFORE WE BEGIN</p>
+
+            <svg class="french-press-art" viewBox="0 0 180 190" role="img" aria-label="An illustrated French press being pressed">
+                <defs>
+                    <clipPath id="press-glass-clip">
+                        <rect x="50" y="41" width="70" height="103" rx="10"></rect>
+                    </clipPath>
+                </defs>
+                <g class="press-steam" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <path d="M69 26 C61 17 77 14 69 5"></path>
+                    <path d="M87 24 C79 15 95 12 87 3"></path>
+                    <path d="M105 26 C97 17 113 14 105 5"></path>
+                </g>
+                <ellipse cx="85" cy="158" rx="45" ry="5" fill="currentColor" opacity=".08"></ellipse>
+                <g class="press-handle" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M121 61 H134 Q144 61 144 72 V94 Q144 105 134 105 H121"></path>
+                </g>
+                <rect x="50" y="41" width="70" height="103" rx="10" fill="#f4f3ef" fill-opacity=".28" stroke="currentColor" stroke-width="2"></rect>
+                <g clip-path="url(#press-glass-clip)">
+                    <path class="press-coffee" d="M50 83 H120 V148 H50 Z" fill="#8e7963" opacity=".8"></path>
+                    <path d="M50 83 Q61 79 72 83 T94 83 T120 83" fill="none" stroke="#554536" stroke-width="1.5" opacity=".8"></path>
+                </g>
+                <path d="M56 49 V133" stroke="#fff" stroke-width="2" opacity=".55" stroke-linecap="round"></path>
+                <path d="M47 38 H123 Q127 38 127 42 V46 H43 V42 Q43 38 47 38Z" fill="currentColor"></path>
+                <g class="press-plunger">
+                    <rect x="83" y="17" width="4" height="81" rx="2" fill="currentColor"></rect>
+                    <rect x="69" y="91" width="32" height="5" rx="2.5" fill="currentColor"></rect>
+                    <rect x="76" y="11" width="18" height="8" rx="3" fill="currentColor"></rect>
+                </g>
+                <path d="M48 147 H122" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M62 154 H108" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".35"></path>
+            </svg>
+
+            <p class="portfolio-boot-title">A little ritual.</p>
+            <p class="portfolio-boot-note">Then, into the work.</p>
+            <button class="portfolio-boot-skip" id="portfolio-boot-skip" type="button">SKIP INTRO <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="portfolio-boot-progress" aria-hidden="true"><span></span></div>
+    </div>
 
     <header class="nav">
         <a href="#home" class="logo">SANIKA SHEDGE</a>
 
         <nav>
-            <a href="#about">About</a>
+            <a href="about.html">About</a>
             <a href="#work">Work</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -60,6 +118,11 @@
             <div class="hero-bottom">
                 <span>BASED IN AHMEDABAD</span>
                 <span>SCROLL TO EXPLORE ↓</span>
+            </div>
+
+            <div class="palette-hint" aria-label="Open keyword search with Control K or Command K">
+                <span class="palette-hint-label">Keyword Search?</span>
+                <span class="palette-hint-shortcut">ctrl + k <span>or</span> ⌘ + k</span>
             </div>
 
         </section>
@@ -128,7 +191,7 @@
         <!-- 01 — SYNKRO -->
         <a
             href="portfolio_case_study/projects/synkro_final/projects/synkro.html"
-            class="gallery-project gallery-synkro"
+            class="gallery-project gallery-synkro" data-tags="product design, ui, ux, service design, research, interaction design"
         >
             <div class="gallery-image">
                 <img
@@ -146,7 +209,7 @@
         <!-- 02 — JAMALPUR FLOWER MARKET -->
         <a
             href="portfolio_case_study/projects/Jamalpur/jamalpur.html"
-            class="gallery-project gallery-jamalpur"
+            class="gallery-project gallery-jamalpur" data-tags="research, systems design, field study, service design, information design"
         >
             <div class="gallery-image">
                 <img
@@ -164,7 +227,7 @@
         <!-- 03 — HUMANIZING AQI -->
         <a
             href="portfolio_case_study/projects/Aqi/aqi.html"
-            class="gallery-project gallery-aqi"
+            class="gallery-project gallery-aqi" data-tags="data visualisation, research, ui, ux, information design, air quality"
         >
             <div class="gallery-image">
                 <img
@@ -182,7 +245,7 @@
         <!-- 04 — VIRAL SIYAPPA -->
         <a
             href="portfolio_case_study/projects/Viral%20Siyappa/viral-siyappa.html"
-            class="gallery-project gallery-viral"
+            class="gallery-project gallery-viral" data-tags="game design, research, systems design, information design, interaction design, misinformation"
         >
             <div class="gallery-image">
                 <img
@@ -200,7 +263,7 @@
     </div>
 
     <!-- SELECTED CLIENT WORK -->
-<div class="client-work">
+<div class="client-work" id="client-work">
 
     <div class="client-work-intro">
         <span>SELECTED CLIENT WORK</span>
@@ -429,7 +492,89 @@
 
 </section>
 
-<dialog class="client-image-dialog" aria-label="Expanded client work image">
+
+    <!-- Keyboard-only command palette. Open with Ctrl + K / Command + K. -->
+    <dialog class="command-palette" id="command-palette" aria-label="Keyword search">
+        <div class="command-palette-panel">
+            <label class="command-palette-search-wrap" for="command-palette-search">
+                <span class="command-search-icon" aria-hidden="true">⌕</span>
+                <input id="command-palette-search" type="search" placeholder="Search projects, pages, or keywords…" autocomplete="off" spellcheck="false" aria-label="Search projects, pages, or keywords">
+                <kbd>ESC</kbd>
+            </label>
+
+            <div class="command-palette-scroll" id="command-palette-scroll">
+                <section class="command-group" data-command-group aria-labelledby="command-pages-label">
+                    <h2 class="command-palette-group-title" id="command-pages-label">PAGES & SECTIONS</h2>
+                    <div class="command-entry-list" role="listbox" aria-label="Pages and sections">
+                        <a class="command-palette-item" role="option" aria-selected="false" href="#home" data-command-entry data-kind="page" data-search="home landing start top">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Home</strong><small>Back to the beginning</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="about.html" data-command-entry data-kind="page" data-search="about introduction profile bio sanika">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>About</strong><small>A little context</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="#work" data-command-entry data-kind="page" data-search="selected work projects portfolio gallery">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Selected work</strong><small>Four featured projects</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="#client-work" data-command-entry data-kind="page" data-search="client work aarambh socials bhavya true harvest branding packaging print social media">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Client work</strong><small>Selected studio and brand work</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="#contact" data-command-entry data-kind="page" data-search="contact email phone linkedin get in touch">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Contact</strong><small>Start a conversation</small></span><span class="command-item-type">PAGE</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="docs/Resume.pdf" target="_blank" rel="noopener" data-command-entry data-kind="page" data-search="resume cv pdf experience download">
+                            <span class="command-item-index">↗</span><span class="command-item-copy"><strong>Resume</strong><small>Open the PDF in a new tab</small></span><span class="command-item-type">PDF</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="command-group" data-command-group data-command-projects-group aria-labelledby="command-projects-label" hidden>
+                    <h2 class="command-palette-group-title" id="command-projects-label">PROJECTS</h2>
+                    <div class="command-entry-list" role="listbox" aria-label="Projects">
+                        <a class="command-palette-item" role="option" aria-selected="false" href="portfolio_case_study/projects/synkro_final/projects/synkro.html" data-command-entry data-kind="project" data-tags="product design ui ux service design research interaction design" data-search="synkro event discovery vendor platform interface interaction product design ui ux service design research">
+                            <span class="command-item-index">01</span><span class="command-item-copy"><strong>Synkro</strong><small>UI/UX · Service design</small></span><span class="command-item-type">PROJECT</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="portfolio_case_study/projects/Jamalpur/jamalpur.html" data-command-entry data-kind="project" data-tags="research systems design field study service design information design" data-search="jamalpur flower market research systems field study informal vendors service design information design">
+                            <span class="command-item-index">02</span><span class="command-item-copy"><strong>Jamalpur Flower Market</strong><small>Research · Systems design</small></span><span class="command-item-type">PROJECT</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="portfolio_case_study/projects/Aqi/aqi.html" data-command-entry data-kind="project" data-tags="data visualisation research ui ux information design air quality" data-search="humanizing aqi air quality information ux research data environment data visualisation ui information design">
+                            <span class="command-item-index">03</span><span class="command-item-copy"><strong>Humanizing AQI</strong><small>Information · UX · Research</small></span><span class="command-item-type">PROJECT</span>
+                        </a>
+                        <a class="command-palette-item" role="option" aria-selected="false" href="portfolio_case_study/projects/Viral%20Siyappa/viral-siyappa.html" data-command-entry data-kind="project" data-tags="game design research systems design information design interaction design misinformation" data-search="viral siyappa game board game misinformation systems design research information design interaction design">
+                            <span class="command-item-index">04</span><span class="command-item-copy"><strong>Viral Siyappa</strong><small>Game design · Systems</small></span><span class="command-item-type">PROJECT</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="command-group" data-command-group aria-labelledby="command-keywords-label">
+                    <h2 class="command-palette-group-title" id="command-keywords-label">KEYWORDS</h2>
+                    <div class="command-keyword-list" role="listbox" aria-label="Browse by project keyword">
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Data Visualisation" data-search="data visualisation data visualization charts air quality"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Data Visualisation</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Product Design" data-search="product design product development industrial"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Product Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Research" data-search="research user research field study discovery"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Research</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Systems Design" data-search="systems design systems thinking ecosystem"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Systems Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="UI" data-search="ui interface visual interface interface design"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>UI</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="UX" data-search="ux user experience usability"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>UX</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Field Study" data-search="field study fieldwork ethnography market vendors"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Field Study</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Information Design" data-search="information design data information visualisation"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Information Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Game Design" data-search="game design board game gameplay"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Game Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Interaction Design" data-search="interaction design interaction experience"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Interaction Design</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Misinformation" data-search="misinformation viral siyappa media literacy"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Misinformation</span></button>
+                        <button class="command-keyword-item" type="button" role="option" aria-selected="false" data-command-entry data-kind="keyword" data-keyword="Air Quality" data-search="air quality aqi pollution environment"><span class="command-keyword-icon" aria-hidden="true">◇</span><span>Air Quality</span></button>
+                    </div>
+                </section>
+
+                <p class="command-palette-empty" id="command-palette-empty" hidden>No matches. Try a project name, page, or keyword.</p>
+            </div>
+
+            <div class="command-palette-footer" aria-hidden="true">
+                <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+                <span><kbd>↵</kbd> open / choose keyword</span>
+                <span><kbd>esc</kbd> close</span>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog class="client-image-dialog" aria-label="Expanded client work image">
     <div class="client-image-dialog-content">
         <button class="client-image-dialog-close" type="button" aria-label="Close expanded view">×</button>
         <button class="client-image-dialog-card-previous" type="button" aria-label="Previous image">&lt;</button>

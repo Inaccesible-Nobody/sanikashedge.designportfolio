@@ -1,0 +1,165 @@
+/* V10 About page add-on. Keeps existing about.css (and any manual layout fixes) intact. */
+
+/* An actual postal stamp with Sanika's own logo, not the wax seal. */
+.postcard-stamp-mini {
+    position: relative;
+    isolation: isolate;
+    border: 1px dashed rgba(91, 105, 78, .72);
+    outline: 1px solid rgba(122, 111, 84, .22);
+    outline-offset: 2px;
+    background:
+        radial-gradient(rgba(91, 81, 59, .10) .55px, transparent .8px),
+        linear-gradient(145deg, #faf5e7, #e8dfc9);
+    background-size: 4px 4px, auto;
+    box-shadow: 1px 3px 5px rgba(54, 45, 31, .16), inset 0 0 0 3px rgba(255,255,255,.32);
+}
+
+.postcard-stamp-mini img {
+    display: block;
+    width: 29px;
+    height: 57px;
+    margin: 0 auto 5px;
+    object-fit: contain;
+    filter: sepia(.08) saturate(.82);
+}
+
+.postcard-stamp-mini .stamp-cancel-lines {
+    right: -24px;
+    bottom: 12px;
+    width: 42px;
+    height: 22px;
+    opacity: .86;
+}
+
+.postcard-stamp-mini .stamp-country {
+    display: none;
+}
+
+/* The keyword-search hint belongs to the homepage, not this page. */
+body.about-page .palette-hint {
+    display: none !important;
+}
+
+/* Make the Spotify card respect its actual panel width instead of overflowing it. */
+body.about-page .music-panel {
+    box-sizing: border-box;
+    width: min(342px, calc(100vw - 24px));
+}
+
+body.about-page .music-panel iframe {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+@media (max-width: 1050px) {
+    body.about-page .music-panel {
+        box-sizing: border-box;
+        width: min(352px, calc(100vw - 8px));
+        max-width: calc(100vw - 8px);
+        padding: 5px 2px;
+    }
+
+    body.about-page .music-panel iframe {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: min(352px, 52svh);
+        min-height: 250px;
+    }
+}
+
+/* Page-load intro. The portrait anchors the scene; the objects emerge from
+   near it, travel in different directions, then settle at their final layout. */
+.about-page .about-copy {
+    --entry-x: -28px;
+    --entry-y: 0px;
+    --entry-scale: .985;
+    --entry-rotate: 0deg;
+    animation: about-v10-settle 760ms cubic-bezier(.2,.72,.2,1) 60ms both;
+}
+
+.about-page .about-portrait {
+    --entry-x: 0px;
+    --entry-y: 25px;
+    --entry-scale: .92;
+    --entry-rotate: 0deg;
+    animation: about-v10-settle 900ms cubic-bezier(.18,.76,.24,1) 140ms both;
+}
+
+.about-page .about-object--music {
+    --entry-x: -34px;
+    --entry-y: 20px;
+    --entry-scale: .92;
+    --entry-rotate: 0deg;
+    animation: about-v10-settle 760ms cubic-bezier(.2,.72,.2,1) 300ms both;
+}
+
+.about-page .about-object--moka {
+    --entry-x: -27px;
+    --entry-y: 8px;
+    --entry-scale: .92;
+    --entry-rotate: 0deg;
+    animation: about-v10-settle 720ms cubic-bezier(.2,.72,.2,1) 410ms both;
+}
+
+.about-page .about-object--tech {
+    --entry-x: -36px;
+    --entry-y: 16px;
+    --entry-scale: .92;
+    --entry-rotate: 0deg;
+    animation: about-v10-settle 780ms cubic-bezier(.2,.72,.2,1) 510ms both;
+}
+
+.about-page .about-object--books {
+    --entry-x: -38px;
+    --entry-y: 20px;
+    --entry-scale: .92;
+    --entry-rotate: 0deg;
+    animation: about-v10-settle 820ms cubic-bezier(.2,.72,.2,1) 620ms both;
+}
+
+.about-page .about-object--pudding {
+    --entry-x: 26px;
+    --entry-y: 18px;
+    --entry-scale: .92;
+    --entry-rotate: -5deg;
+    animation: about-v10-settle 760ms cubic-bezier(.2,.72,.2,1) 720ms both;
+}
+
+.about-page .about-object--connect {
+    --entry-x: -22px;
+    --entry-y: -15px;
+    --entry-scale: .92;
+    --entry-rotate: 4deg;
+    animation: about-v10-settle 720ms cubic-bezier(.2,.72,.2,1) 820ms both;
+}
+
+@keyframes about-v10-settle {
+    from {
+        opacity: 0;
+        transform: translate3d(var(--entry-x, 0), var(--entry-y, 0), 0)
+                   rotate(var(--entry-rotate, 0deg)) scale(var(--entry-scale, 1));
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-page .about-copy,
+    .about-page .about-portrait,
+    .about-page .about-object--music,
+    .about-page .about-object--moka,
+    .about-page .about-object--tech,
+    .about-page .about-object--books,
+    .about-page .about-object--pudding,
+    .about-page .about-object--connect {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

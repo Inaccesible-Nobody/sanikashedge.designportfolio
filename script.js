@@ -554,3 +554,221 @@ document.addEventListener("click", (event) => {
         });
     }, 500);
 });
+
+/* ========================================
+   FIRST-VISIT INTRO, KEYWORD PALETTE & WORK ENTRANCE
+======================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const bootScreen = document.getElementById("portfolio-boot");
+    const skipBoot = document.getElementById("portfolio-boot-skip");
+    const palette = document.getElementById("command-palette");
+    const paletteSearch = document.getElementById("command-palette-search");
+    const paletteScroll = document.getElementById("command-palette-scroll");
+    const emptyMessage = document.getElementById("command-palette-empty");
+    const gallery = document.querySelector(".work-gallery");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const paletteHint = document.querySelector(".palette-hint");
+    const aboutSection = document.getElementById("about");
+    const contactSection = document.getElementById("contact");
+
+    // Reveal the fixed hint once the About section is reached. Keep it visible
+    // throughout the portfolio, then hide it when the visitor reaches the end
+    // of the Contact section (currently the bottom of the page).
+    if (paletteHint && aboutSection && contactSection) {
+        const updatePaletteHintVisibility = () => {
+            const aboutReached = aboutSection.getBoundingClientRect().top <= 96;
+            const contactBottomReached =
+                window.scrollY + window.innerHeight >=
+                    document.documentElement.scrollHeight - 4 &&
+                contactSection.getBoundingClientRect().bottom <= window.innerHeight + 8;
+
+            paletteHint.classList.toggle(
+                "is-visible",
+                aboutReached && !contactBottomReached
+            );
+        };
+
+        updatePaletteHintVisibility();
+        window.addEventListener("scroll", updatePaletteHintVisibility, { passive: true });
+        window.addEventListener("resize", updatePaletteHintVisibility);
+    }
+
+    // The intro runs once per browser tab. Reduced-motion users skip it entirely.
+    if (bootScreen && document.documentElement.classList.contains("show-portfolio-boot")) {
+        let bootDismissed = false;
+        const dismissBoot = () => {
+            if (bootDismissed) return;
+            bootDismissed = true;
+            bootScreen.classList.add("is-leaving");
+            document.documentElement.classList.remove("show-portfolio-boot");
+            window.setTimeout(() => {
+                bootScreen.hidden = true;
+            }, 300);
+        };
+
+        skipBoot?.addEventListener("click", dismissBoot);
+        window.setTimeout(dismissBoot, 1150);
+    } else if (bootScreen) {
+        bootScreen.hidden = true;
+    }
+
+    // Animate the gallery only when it first enters view. Its existing margins/grid
+    // remain responsible for the final positions, so this is entrance motion only.
+    if (gallery) {
+        if (reducedMotion.matches) {
+            gallery.classList.add("is-in-view");
+        } else {
+            gallery.classList.add("gallery-motion-ready");
+            if ("IntersectionObserver" in window) {
+                const galleryObserver = new IntersectionObserver((entries) => {
+                    if (entries.some((entry) => entry.isIntersecting)) {
+                        gallery.classList.add("is-in-view");
+                        galleryObserver.disconnect();
+                    }
+                }, {
+                    threshold: 0.12,
+                    rootMargin: "0px 0px -8% 0px"
+                });
+                galleryObserver.observe(gallery);
+            } else {
+                gallery.classList.add("is-in-view");
+            }
+        }
+    }
+
+    if (!palette || !paletteSearch || !paletteScroll) return;
+
+    const allEntries = Array.from(palette.querySelectorAll("[data-command-entry]"));
+    const groups = Array.from(palette.querySelectorAll("[data-command-group]"));
+    let visibleEntries = [];
+    let activeEntryIndex = 0;
+
+    const updateActiveEntry = () => {
+        visibleEntries.forEach((entry, index) => {
+            const isActive = index === activeEntryIndex;
+            entry.classList.toggle("is-active", isActive);
+            entry.setAttribute("aria-selected", String(isActive));
+            if (isActive) entry.scrollIntoView({ block: "nearest" });
+        });
+    };
+
+    const filterEntries = () => {
+        const query = paletteSearch.value.trim().toLocaleLowerCase();
+        visibleEntries = [];
+
+        allEntries.forEach((entry) => {
+            const kind = entry.dataset.kind;
+            // At rest, show pages/sections and keywords. Project rows appear when
+            // searching or after choosing a keyword, keeping the default panel calm.
+            const searchableText = [
+                entry.textContent,
+                entry.dataset.search || "",
+                entry.dataset.tags || "",
+                entry.dataset.keyword || ""
+            ].join(" ").toLocaleLowerCase();
+            const defaultVisible = !query && kind !== "project";
+            const matchesQuery = query && (query.length <= 2
+                ? searchableText.split(/[^a-z0-9]+/).some((word) => word === query)
+                : searchableText.includes(query));
+            const matches = Boolean(defaultVisible || matchesQuery);
+
+            entry.hidden = !matches;
+            entry.classList.remove("is-active");
+            entry.setAttribute("aria-selected", "false");
+            if (matches) visibleEntries.push(entry);
+        });
+
+        groups.forEach((group) => {
+            const hasVisibleEntry = group.querySelector('[data-command-entry]:not([hidden])');
+            group.hidden = !hasVisibleEntry;
+        });
+
+        activeEntryIndex = 0;
+        if (emptyMessage) emptyMessage.hidden = visibleEntries.length > 0 || !query;
+        updateActiveEntry();
+    };
+
+    const openPalette = () => {
+        if (typeof palette.showModal === "function") {
+            if (!palette.open) palette.showModal();
+        } else {
+            palette.setAttribute("open", "");
+        }
+        paletteSearch.value = "";
+        filterEntries();
+        window.requestAnimationFrame(() => paletteSearch.focus());
+    };
+
+    const closePalette = () => {
+        if (typeof palette.close === "function" && palette.open) {
+            palette.close();
+        } else {
+            palette.removeAttribute("open");
+        }
+    };
+
+    paletteSearch.addEventListener("input", filterEntries);
+
+    palette.addEventListener("click", (event) => {
+        if (event.target === palette) closePalette();
+        const clickedEntry = event.target.closest("[data-command-entry]");
+        if (!clickedEntry) return;
+
+        if (clickedEntry.dataset.kind === "keyword") {
+            // Selecting a keyword changes the palette to matching project results.
+            event.preventDefault();
+            paletteSearch.value = clickedEntry.dataset.keyword || clickedEntry.textContent.trim();
+            filterEntries();
+            paletteSearch.focus();
+        } else {
+            closePalette();
+        }
+    });
+
+    paletteScroll.addEventListener("mousemove", (event) => {
+        const hoveredEntry = event.target.closest("[data-command-entry]");
+        if (!hoveredEntry || hoveredEntry.hidden) return;
+        const index = visibleEntries.indexOf(hoveredEntry);
+        if (index >= 0 && index !== activeEntryIndex) {
+            activeEntryIndex = index;
+            updateActiveEntry();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        const isPaletteShortcut = (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k";
+        if (isPaletteShortcut) {
+            event.preventDefault();
+            openPalette();
+            return;
+        }
+
+        if (event.key === "Escape" && palette.open) {
+            event.preventDefault();
+            closePalette();
+            return;
+        }
+
+        if (!palette.open || !visibleEntries.length) return;
+
+        if (event.key === "ArrowDown") {
+            event.preventDefault();
+            activeEntryIndex = (activeEntryIndex + 1) % visibleEntries.length;
+            updateActiveEntry();
+        } else if (event.key === "ArrowUp") {
+            event.preventDefault();
+            activeEntryIndex = (activeEntryIndex - 1 + visibleEntries.length) % visibleEntries.length;
+            updateActiveEntry();
+        } else if (event.key === "Enter") {
+            const activeEntry = visibleEntries[activeEntryIndex];
+            if (activeEntry && activeEntry.dataset.kind === "keyword") {
+                event.preventDefault();
+                activeEntry.click();
+            } else if (activeEntry && document.activeElement === paletteSearch) {
+                event.preventDefault();
+                activeEntry.click();
+            }
+        }
+    });
+});
