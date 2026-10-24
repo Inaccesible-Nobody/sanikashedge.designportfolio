@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="about-entrance-v10.css">
     <link rel="stylesheet" href="postcard-ajax-v11.css">
-    <script src="postcard-ajax-v11.js"></script>
 </head>
 <body class="about-page">
     <header class="nav">
@@ -156,7 +155,7 @@
                         <label for="postcard-message">Your message</label>
                         <textarea id="postcard-message" name="message" placeholder="Write me a little note..." rows="5" required maxlength="3000"></textarea>
                         <button class="postcard-send" type="submit">Send postcard ↗</button>
-                        <!-- <p class="postcard-form-note">Your note will arrive by email once the form is connected.</p> -->
+                        <p class="postcard-form-note" role="status" aria-live="polite"></p>
                     </div>
                 </form>
             </div>
@@ -245,4 +244,138 @@
     <script src="script.js"></script>
     <script src="about.js"></script>
 </body>
+<!-- Postcard V12: paste this complete script just before </body> in about.html. -->
+<script>
+(() => {
+  'use strict';
+
+  document.addEventListener('submit', async (event) => {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement) || !form.matches('.postcard-form')) return;
+
+    // This is the important bit: stop the browser's normal navigation immediately.
+    event.preventDefault();
+
+    if (form.dataset.ajaxSending === 'true' || !form.reportValidity()) return;
+
+    const dialog = document.getElementById('postcard-dialog');
+    const card = dialog?.querySelector('.postcard-card');
+    const button = form.querySelector('button[type="submit"]');
+    const note = form.querySelector('.postcard-form-note');
+    const originalButtonText = button?.textContent || 'Send postcard ↗';
+    const originalNoteText = note?.textContent || '';
+
+    const setNote = (message, kind = '') => {
+      if (!note) return;
+      note.textContent = message;
+      note.classList.toggle('is-error', kind === 'error');
+      note.classList.toggle('is-success', kind === 'success');
+      note.setAttribute('role', 'status');
+      note.setAttribute('aria-live', 'polite');
+    };
+
+    const showToast = (message) => {
+      let toast = document.querySelector('.postcard-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'postcard-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 4200);
+    };
+
+    let endpoint;
+    try {
+      const action = new URL(form.getAttribute('action') || '', window.location.href);
+      if (!/^formsubmit\.co$/i.test(action.hostname)) {
+        throw new Error('The postcard form action must point to FormSubmit.');
+      }
+      const recipientPath = action.pathname.replace(/^\/+|\/+$/g, '');
+      if (!recipientPath || recipientPath.includes('REPLACE_WITH_YOUR_EMAIL')) {
+        throw new Error('Add your real receiving email address to the form action in about.html.');
+      }
+      endpoint = `https://formsubmit.co/ajax/${recipientPath}`;
+    } catch (error) {
+      setNote(error instanceof Error ? error.message : 'The postcard form is not configured correctly.', 'error');
+      return;
+    }
+
+    form.dataset.ajaxSending = 'true';
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Sending…';
+    }
+    setNote('Sending your postcard…');
+
+    try {
+      const payload = Object.fromEntries(new FormData(form).entries());
+      payload._captcha = 'false';
+      payload._subject = payload._subject || 'A postcard from your portfolio';
+      payload._replyto = payload.email || '';
+
+      // FormSubmit documents this /ajax/ endpoint for JSON submissions without page navigation.
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      let result;
+      try {
+        result = await response.json();
+      } catch {
+        throw new Error('The email service returned an unexpected response. Your page has not left. Please try again.');
+      }
+
+      const message = String(result.message || result.error || '');
+      const status = String(result.status || '').toLowerCase();
+      const successValue = String(result.success ?? '').toLowerCase();
+      const succeeded = response.ok && (
+        result.success === true || successValue === 'true' || result.ok === true ||
+        status === 'success' || /sent successfully|successfully sent/i.test(message)
+      );
+
+      if (!succeeded) {
+        throw new Error(message || 'Your postcard could not be sent. Please try again.');
+      }
+
+      setNote('Sent! Your postcard is on its way.', 'success');
+      if (card && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        card.classList.remove('postcard-card--sending-away');
+        void card.offsetWidth;
+        card.classList.add('postcard-card--sending-away');
+      }
+
+      window.setTimeout(() => {
+        if (dialog?.open) dialog.close();
+        card?.classList.remove('postcard-card--sending-away');
+        form.reset();
+        setNote(originalNoteText);
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalButtonText;
+        }
+        form.dataset.ajaxSending = 'false';
+        showToast('Postcard sent. Thanks for writing!');
+      }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 680);
+    } catch (error) {
+      setNote(error instanceof Error ? error.message : 'Something went wrong. Please try again.', 'error');
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalButtonText;
+      }
+      form.dataset.ajaxSending = 'false';
+    }
+  }, true);
+})();
+</script>
+
 </html>
