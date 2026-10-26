@@ -165,8 +165,8 @@ section {
 .hero-center {
     position: absolute;
 
-    top: 52%;
-    left: 52%;
+    top: 50%;
+    left: 50%;
 
     transform: translate(-50%, -50%);
 
@@ -176,7 +176,7 @@ section {
 }
 
 .hero-wordmark {
-    width: min(1000px, 82vw);
+    width: min(760px, 62vw);
     height: auto;
 
     display: block;
@@ -251,9 +251,9 @@ section {
 ========================= */
 
 .intro {
-    min-height: 80vh;
+    min-height: auto;
 
-    padding: 120px 32px 140px;
+    padding: 68px 32px 78px;
 
     border-top: 1px solid #d8d6cf;
 }
@@ -272,32 +272,33 @@ section {
 
 .intro-main {
     display: grid;
-    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.6fr);
-    gap: 8vw;
+    grid-template-columns: minmax(0, 1.25fr) minmax(270px, 0.65fr);
+    gap: clamp(40px, 7vw, 100px);
+    align-items: end;
 
-    margin-top: 120px;
+    margin-top: 48px;
 }
 
 .intro h2 {
-    max-width: 1000px;
+    max-width: 780px;
 
-    font-size: clamp(48px, 6.8vw, 80px);
-    line-height: 0.94;
+    font-size: clamp(34px, 3.6vw, 48px);
+    line-height: 1.04;
     font-weight: 500;
 
-    letter-spacing: -0.055em;
+    letter-spacing: -0.04em;
 }
 
 .intro-side {
     align-self: end;
 
-    max-width: 360px;
-    padding-bottom: 8px;
+    max-width: 350px;
+    padding-bottom: 4px;
 }
 
 .intro-side p {
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.6;
 
     color: #454743;
 }
@@ -322,7 +323,7 @@ section {
     align-items: center;
     gap: 12px;
 
-    margin-top: 42px;
+    margin-top: 24px;
 
     font-size: 10px;
     text-transform: uppercase;
@@ -360,8 +361,9 @@ section {
 .work-gallery-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 120px 32px 140px;
+    align-items: end;
+    gap: clamp(24px, 5vw, 72px);
+    padding: 64px 32px 62px;
 }
 
 .work-gallery-header .section-label {
@@ -373,10 +375,10 @@ section {
 }
 
 .work-gallery-note {
-    max-width: 390px;
+    max-width: 420px;
     margin: 0;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.55;
     color: var(--muted);
 }
 
@@ -390,8 +392,8 @@ section {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: start;
     width: min(1280px, calc(100% - 64px));
-    height: 850px;
-    margin: 0 auto 100px;
+    height: 540px;
+    margin: 0 auto 24px;
 }
 
 
@@ -412,7 +414,7 @@ section {
 
 .gallery-project::before {
     position: absolute;
-    bottom: calc(100% + 8px);
+    top: -20px;
     left: 0;
 
     font-size: 12px;
@@ -464,42 +466,51 @@ section {
 /* PROJECT LABEL — BELOW IMAGE */
 
 .gallery-card {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    right: 0;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
 
-    padding: 0;
-    margin: 0;
+    padding: 10px 0 0;
+    margin: 12px 0 0;
+    border-top: 1px solid #d8d6cf;
 
     background: transparent;
     color: #111;
 
-    opacity: 0;
-    transform: translateY(5px);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+    opacity: 1;
+    transform: none;
+    transition: color 0.25s ease;
 
     pointer-events: none;
 }
 
 .gallery-card h3 {
-    margin: 0 0 3px;
-    font-size: 13px;
-    line-height: 1.3;
+    margin: 0 0 4px;
+    font-size: 14px;
+    line-height: 1.25;
     font-weight: 500;
     letter-spacing: 0;
 }
 
 .gallery-card p {
     margin: 0;
-    font-size: 10px;
+    font-size: 9px;
     line-height: 1.4;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--muted);
+}
+
+.gallery-summary {
+    display: block;
+    max-width: 250px;
+    margin-top: 8px;
+    color: #4a4b46;
+    font-size: 12px;
+    line-height: 1.45;
+    letter-spacing: 0;
+    text-transform: none;
 }
 
 
@@ -509,7 +520,7 @@ section {
 
 /* Staggered vertical positions */
 .gallery-synkro {
-    margin-top: -50px;
+    margin-top: -30px;
 }
 
 .gallery-jamalpur {
@@ -586,12 +597,18 @@ section {
     transform: scale(1.02);
 }
 
-/* Title and tags appear below */
-
+/* Captions stay visible so every project gives visitors a reason to click. */
 .gallery-project:hover .gallery-card,
 .gallery-project:focus-visible .gallery-card {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+}
+
+.gallery-project:hover .gallery-card h3,
+.gallery-project:focus-visible .gallery-card h3 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
 }
 
 
@@ -699,6 +716,7 @@ section {
 
     padding-top: 32px;
     padding-left: 32px;
+    /* color : #222523; */
 
     /* border-top: 1px solid #d8d6cf; */
 }
@@ -794,7 +812,7 @@ section {
 }
 
 .client-work-name {
-    font-size: 32px;
+    font-size: 28px;
 
     line-height: 1;
 
@@ -948,7 +966,7 @@ section {
     }
 
     .client-work-name {
-        font-size: 25px;
+        font-size: clamp(20px, 3.5vw, 24px);
     }
 
     .client-work-meta {
@@ -1245,8 +1263,8 @@ section {
     }
 
     .hero-wordmark {
-        width: 92vw;
-        max-width: 560px;
+        width: 86vw;
+        max-width: 480px;
     }
 
 
@@ -1302,22 +1320,21 @@ section {
 
     .intro {
         min-height: auto;
-
-        padding: 80px 20px 100px;
+        padding: 48px 20px 56px;
     }
 
     .intro-main {
         display: flex;
         flex-direction: column;
-
-        gap: 60px;
-
-        margin-top: 70px;
+        align-items: stretch;
+        gap: 22px;
+        margin-top: 34px;
     }
 
     .intro h2 {
-        font-size: clamp(42px, 11vw, 64px);
-        line-height: 0.96;
+        max-width: 620px;
+        font-size: clamp(32px, 8.8vw, 42px);
+        line-height: 1.04;
     }
 
     .intro-side {
@@ -1331,7 +1348,23 @@ section {
     }
 
     .intro-tags {
-        margin-top: 28px;
+        display: none;
+    }
+
+    .resume-link {
+        margin-top: 22px;
+    }
+
+    .work-gallery-header {
+        padding: 38px 20px 34px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .work-gallery {
+        height: auto;
+        min-height: 0;
+        margin-bottom: 36px;
     }
 
 
@@ -1977,4 +2010,507 @@ html.show-portfolio-boot .portfolio-boot {
         transform: none !important;
         pointer-events: auto !important;
     }
+}
+
+
+/* ========================================
+   HOMEPAGE REFINEMENT V3
+======================================== */
+.intro-header-note {
+    color: #85887f;
+    font-size: 10px;
+    letter-spacing: .08em;
+}
+
+@media (max-width: 1100px) {
+    .hero-wordmark { width: min(700px, 72vw); }
+    .intro { padding: 58px 28px 66px; }
+    .intro-main { gap: 42px; margin-top: 40px; grid-template-columns: minmax(0, 1.15fr) minmax(250px, .7fr); }
+    .intro h2 { font-size: clamp(34px, 4.2vw, 46px); }
+    .work-gallery { height: auto; min-height: 0; row-gap: 58px; padding-bottom: 8px; }
+}
+
+@media (max-width: 850px) and (min-width: 701px) {
+    .intro-main { grid-template-columns: minmax(0, 1fr) minmax(230px, .75fr); gap: 32px; }
+    .intro h2 { font-size: clamp(32px, 4.2vw, 40px); }
+    .work-gallery-header { padding: 50px 28px 56px; }
+}
+
+@media (max-width: 700px) {
+    .hero-wordmark { width: 86vw; max-width: 480px; }
+    .intro { padding: 48px 20px 56px; }
+    .intro-main { display: flex; flex-direction: column; gap: 22px; margin-top: 34px; }
+    .intro h2 { max-width: 620px; font-size: clamp(32px, 8.8vw, 42px); line-height: 1.04; }
+    .intro-side { max-width: 560px; }
+    .intro-side p { font-size: 14px; line-height: 1.6; }
+    .intro-header-note { font-size: 8px; max-width: 48%; text-align: right; line-height: 1.35; }
+    .resume-link { margin-top: 22px; }
+    .work-gallery-header { grid-template-columns: 1fr; gap: 12px; padding: 38px 20px 34px; margin: 0; }
+    .work-gallery-header .section-label { font-size: 10px; }
+    .work-gallery { height: auto; min-height: 0; gap: 64px; margin-bottom: 36px; padding-bottom: 0; }
+    .gallery-project { width: min(78%, 300px); margin-top: 0; }
+    .gallery-synkro, .gallery-jamalpur, .gallery-aqi, .gallery-viral { margin-top: 0; }
+    .gallery-card { margin-top: 10px; padding-top: 9px; }
+    .gallery-card h3 { font-size: 14px; }
+    .gallery-card p { font-size: 9px; }
+    .gallery-summary { font-size: 12px; }
+    .gallery-image img { filter: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery-project, .gallery-card, .gallery-image img { transition: none !important; animation: none !important; }
+}
+
+
+/* ========================================
+   HOMEPAGE REFINEMENT V4
+   Calmer hierarchy + deliberate section rhythm
+======================================== */
+
+/* Keep the wordmark distinctive without letting it consume the page. */
+.hero-wordmark {
+    width: min(610px, 50vw);
+}
+
+.hero-center {
+    top: 48%;
+}
+
+/* One compact introduction, not a second hero. */
+.intro {
+    padding: clamp(56px, 5.5vw, 76px) 32px clamp(72px, 6.5vw, 92px);
+    border-top: 1px solid #d8d6cf;
+    border-bottom: 1px solid #d8d6cf;
+}
+
+.intro-header {
+    justify-content: flex-start;
+}
+
+.intro-main {
+    max-width: 1440px;
+    margin: 34px auto 0;
+    grid-template-columns: minmax(0, 1.25fr) minmax(250px, .62fr);
+    gap: clamp(44px, 8vw, 124px);
+    align-items: end;
+}
+
+.intro h2 {
+    max-width: 720px;
+    font-size: clamp(30px, 2.65vw, 40px);
+    line-height: 1.12;
+    letter-spacing: -.035em;
+    font-weight: 500;
+}
+
+.intro-side {
+    max-width: 340px;
+}
+
+.intro-side p {
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.resume-link {
+    margin-top: 22px;
+}
+
+/* A clear section opening, with the actual title doing the hierarchy work. */
+.work-gallery-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr);
+    align-items: end;
+    gap: clamp(28px, 6vw, 88px);
+    padding: clamp(72px, 7.5vw, 104px) 32px 44px;
+}
+
+.work-gallery-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    min-width: 0;
+}
+
+.work-section-title {
+    font-size: 20px;
+    line-height: 1.05;
+    letter-spacing: -.035em;
+    font-weight: 400;
+}
+
+.work-section-title span {
+    color: #6d846f;
+}
+
+/* .work-gallery-count {
+    flex: 0 0 auto;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: .1em;
+    color: #66706a;
+} */
+
+.work-gallery-note {
+    max-width: 370px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* A restrained stagger. The first card no longer collides with the section header. */
+.work-gallery {
+    width: min(1280px, calc(100% - 64px));
+    height: 520px;
+    margin: 110px auto 0;
+    row-gap: 0;
+}
+
+.gallery-project {
+    width: min(225px, 100%);
+}
+
+.gallery-synkro { margin-top: 0; }
+.gallery-jamalpur { margin-top: 48px; }
+.gallery-aqi { margin-top: 96px; }
+.gallery-viral { margin-top: 30px; }
+
+/* Enter in the intended 4 → 3 → 2 → 1 order, with gentle staggered timing. */
+.gallery-synkro { --gallery-entry-delay: 360ms; --gallery-entry-y: -8px; --gallery-entry-angle: 2deg; }
+.gallery-jamalpur { --gallery-entry-delay: 240ms; --gallery-entry-y: 10px; --gallery-entry-angle: -2deg; }
+.gallery-aqi { --gallery-entry-delay: 120ms; --gallery-entry-y: -6px; --gallery-entry-angle: 1.5deg; }
+.gallery-viral { --gallery-entry-delay: 0ms; --gallery-entry-y: 12px; --gallery-entry-angle: -2.5deg; }
+
+/* Separate client work as its own chapter instead of letting it trail into the grid. */
+.client-work {
+    margin: 104px 32px 0;
+    padding: 42px 0 0;
+    border-top: 1px solid #d8d6cf;
+}
+
+@media (max-width: 1100px) {
+    .hero-wordmark { width: min(590px, 58vw); }
+    .intro { padding: 58px 28px 72px; }
+    .intro-main { grid-template-columns: minmax(0, 1.1fr) minmax(235px, .72fr); gap: 38px; }
+    .intro h2 { font-size: clamp(30px, 3.25vw, 38px); }
+    .work-gallery-header { padding: 76px 28px 40px; }
+    .work-gallery { height: auto; min-height: 460px; row-gap: 56px; }
+    .gallery-project { width: min(225px, 100%); }
+    .gallery-synkro { margin-top: 0; }
+    .gallery-jamalpur { margin-top: 38px; }
+    .gallery-aqi { margin-top: 76px; }
+    .gallery-viral { margin-top: 26px; }
+    .client-work { margin: 86px 28px 0; }
+}
+
+@media (max-width: 850px) and (min-width: 701px) {
+    .intro-main { grid-template-columns: minmax(0, 1fr) minmax(220px, .7fr); gap: 30px; }
+    .intro h2 { font-size: clamp(29px, 3.8vw, 34px); }
+    .work-gallery-header { grid-template-columns: 1fr .85fr; }
+    .work-section-title { font-size: 30px; }
+}
+
+@media (max-width: 700px) {
+    .hero-center { top: 43%; }
+    .hero-wordmark { width: min(78vw, 360px); max-width: none; }
+
+    .intro {
+        padding: 44px 20px 56px;
+        border-bottom: 1px solid #d8d6cf;
+    }
+    .intro-main {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        margin-top: 26px;
+    }
+    .intro h2 {
+        max-width: 540px;
+        font-size: clamp(28px, 7.4vw, 35px);
+        line-height: 1.1;
+    }
+    .intro-side { max-width: 520px; }
+    .intro-side p { font-size: 14px; line-height: 1.55; }
+    .resume-link { margin-top: 18px; }
+
+    .work-gallery-header {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 60px 20px 28px;
+        margin: 0;
+    }
+    .work-gallery-heading { gap: 14px; }
+    .work-section-title { font-size: 30px; }
+    .work-gallery-note { max-width: 340px; font-size: 13px; }
+
+    .work-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 58px;
+        width: calc(100% - 40px);
+        height: auto;
+        min-height: 0;
+        margin: 0 auto 0;
+        padding-bottom: 0;
+    }
+    .gallery-project { width: min(78%, 300px); margin-top: 0 !important; }
+    .gallery-jamalpur, .gallery-viral { align-self: flex-end; }
+    .gallery-synkro, .gallery-aqi { align-self: flex-start; }
+    .gallery-card { margin-top: 12px; padding-top: 10px; }
+    .gallery-card h3 { font-size: 14px; }
+    .gallery-card p { font-size: 9px; }
+    .gallery-summary { font-size: 12px; }
+
+    .client-work {
+        margin: 76px 20px 0;
+        padding: 32px 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .work-gallery.gallery-motion-ready .gallery-project,
+    .gallery-image img,
+    .resume-link,
+    .resume-link span {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+/* ========================================
+   HOMEPAGE V5 — PINNED WORDMARK → INTRO
+   One viewport stage, one scroll transition.
+======================================== */
+:root {
+    --home-nav-height: 64px;
+}
+
+/* The sequence has one viewport of scroll travel. The sticky stage pins the
+   metadata while the wordmark and introduction trade places. */
+.home-intro-sequence {
+    position: relative;
+    height: 200svh;
+    background: #f4f3ef;
+}
+
+.home-intro-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 520px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #f4f3ef;
+}
+
+.home-intro-stage .hero {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    min-height: 0;
+    padding: 0 32px;
+}
+
+.home-intro-stage .hero-center {
+    top: 55%;
+    left: 50%;
+    width: max-content;
+    opacity: var(--logo-opacity, 1);
+    transform: translate3d(-50%, calc(-50% + var(--logo-y, 0px)), 0) scale(var(--logo-scale, 1));
+    transform-origin: center center;
+    will-change: transform, opacity;
+    z-index: 2;
+}
+
+.home-intro-stage .hero-wordmark {
+    display: block;
+    width: min(1200px, 65vw, 111svh);
+    max-width: none;
+    height: auto;
+}
+
+.home-intro-stage .hero-top {
+    top: calc(var(--home-nav-height) + 18px);
+    left: 32px;
+    right: 32px;
+    z-index: 6;
+}
+
+.home-intro-stage .hero-bottom {
+    left: 32px;
+    right: 32px;
+    bottom: 26px;
+    z-index: 6;
+}
+
+/* The bio occupies the same stage as the wordmark. The scroll script controls
+   opacity and a short upward settle; the element itself does not reflow. */
+.home-intro-stage .intro {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.home-intro-stage .intro-header {
+    display: none;
+}
+
+.home-intro-stage .intro-main {
+    position: absolute;
+    top: 50%;
+    left: clamp(24px, 21vw, 420px);
+    display: block;
+    width: min(620px, 54vw);
+    max-width: 620px;
+    margin: 0;
+    opacity: var(--intro-opacity, 0);
+    transform: translate3d(0, var(--intro-y, 22px), 0) translateY(-50%);
+    will-change: transform, opacity;
+}
+
+.home-intro-stage .intro h2 {
+    max-width: 600px;
+    margin: 0;
+    color: #67816b;
+    font-size: clamp(18px, 1.55vw, 22px);
+    font-weight: 500;
+    line-height: 1.36;
+    letter-spacing: -.022em;
+}
+
+.home-intro-stage .intro-side {
+    max-width: 490px;
+    margin-top: 14px;
+    padding: 0;
+}
+
+.home-intro-stage .intro-side p {
+    color: #282a27;
+    font-size: clamp(14px, 1.15vw, 16px);
+    line-height: 1.55;
+}
+
+.home-intro-stage .resume-link {
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+.home-intro-stage.is-intro-visible .intro {
+    pointer-events: auto;
+}
+
+/* The command hint is outside the fading layers, but is revealed only when
+   the compact intro state has been reached. */
+#home {
+    scroll-margin-top: 0;
+}
+
+@media (max-width: 760px) {
+    :root { --home-nav-height: 48px; }
+
+    .home-intro-sequence { height: 190svh; }
+    .home-intro-stage { min-height: 490px; }
+    .home-intro-stage .hero { padding: 0 20px; }
+    .home-intro-stage .hero-top {
+        top: calc(var(--home-nav-height) + 16px);
+        left: 20px;
+        right: 20px;
+        gap: 12px;
+        font-size: 9px;
+        letter-spacing: .06em;
+    }
+    .home-intro-stage .hero-top span { white-space: normal; }
+    .home-intro-stage .hero-bottom {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        gap: 12px;
+        font-size: 9px;
+        letter-spacing: .06em;
+    }
+    .home-intro-stage .hero-bottom span { white-space: normal; }
+    .home-intro-stage .hero-center { top: 48%; }
+    .home-intro-stage .hero-wordmark {
+        width: min(86vw, 540px, 88svh);
+    }
+    .home-intro-stage .intro-main {
+        left: 24px;
+        right: 24px;
+        width: auto;
+        max-width: 540px;
+        top: 50%;
+    }
+    .home-intro-stage .intro h2 {
+        max-width: 500px;
+        font-size: clamp(18px, 4.9vw, 22px);
+        line-height: 1.35;
+    }
+    .home-intro-stage .intro-side { margin-top: 12px; }
+    .home-intro-stage .intro-side p {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+    .home-intro-stage .resume-link { margin-top: 16px; }
+}
+
+@media (max-width: 390px) {
+    :root { --home-nav-height: 44px; }
+    .home-intro-stage .hero-top { left: 14px; right: 14px; gap: 8px; font-size: 8px; }
+    .home-intro-stage .hero-bottom { left: 14px; right: 14px; font-size: 8px; }
+    .home-intro-stage .intro-main { left: 20px; right: 20px; }
+    .home-intro-stage .intro h2 { font-size: 18px; }
+}
+
+@media (max-height: 650px) and (min-width: 761px) {
+    .home-intro-stage .hero-wordmark { width: min(700px, 54vw, 92svh); }
+    .home-intro-stage .intro-main { top: 53%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-intro-sequence { height: auto; }
+    .home-intro-stage {
+        position: relative;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+    }
+    .home-intro-stage .hero {
+        position: relative;
+        inset: auto;
+        height: 100svh;
+        min-height: 490px;
+    }
+    .home-intro-stage .hero-center {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) !important;
+        will-change: auto;
+    }
+    .home-intro-stage .intro {
+        position: relative;
+        inset: auto;
+        min-height: 0;
+        padding: 52px 24px 62px;
+        border-top: 1px solid #d8d6cf;
+        border-bottom: 1px solid #d8d6cf;
+        pointer-events: auto;
+    }
+    .home-intro-stage .intro-main {
+        position: static;
+        width: auto;
+        max-width: 640px;
+        margin: 0 auto;
+        opacity: 1 !important;
+        transform: none !important;
+        will-change: auto;
+    }
+    .home-intro-stage .intro h2 { font-size: clamp(20px, 3vw, 30px); }
+    .home-intro-stage .intro-side { margin-top: 16px; }
 }

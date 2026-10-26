@@ -569,29 +569,86 @@ document.addEventListener("DOMContentLoaded", () => {
     const gallery = document.querySelector(".work-gallery");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const paletteHint = document.querySelector(".palette-hint");
-    const aboutSection = document.getElementById("about");
+    const homeSequence = document.querySelector(".home-intro-sequence");
+    const homeStage = document.querySelector(".home-intro-stage");
+    const introSection = document.getElementById("about");
+    const workHeader = document.querySelector(".work-gallery-header");
     const contactSection = document.getElementById("contact");
+    let homeScrollProgress = 0;
+    let scrollUpdatePending = false;
 
-    // Reveal the fixed hint once the About section is reached. Keep it visible
-    // throughout the portfolio, then hide it when the visitor reaches the end
-    // of the Contact section (currently the bottom of the page).
-    if (paletteHint && aboutSection && contactSection) {
-        const updatePaletteHintVisibility = () => {
-            const aboutReached = aboutSection.getBoundingClientRect().top <= 96;
-            const contactBottomReached =
-                window.scrollY + window.innerHeight >=
-                    document.documentElement.scrollHeight - 4 &&
-                contactSection.getBoundingClientRect().bottom <= window.innerHeight + 8;
+    const clampProgress = (value) => Math.min(1, Math.max(0, value));
 
-            paletteHint.classList.toggle(
-                "is-visible",
-                aboutReached && !contactBottomReached
-            );
-        };
+    // Map scroll position to the wordmark → intro transition. The header and
+    // metadata stay in place because they live in the pinned stage, outside the
+    // two animated elements.
+    const updateHomeSequence = () => {
+        scrollUpdatePending = false;
+        if (!homeSequence || !homeStage) return;
 
-        updatePaletteHintVisibility();
-        window.addEventListener("scroll", updatePaletteHintVisibility, { passive: true });
-        window.addEventListener("resize", updatePaletteHintVisibility);
+        if (reducedMotion.matches) {
+            homeScrollProgress = 1;
+            homeStage.classList.add("is-intro-visible");
+            homeStage.style.setProperty("--logo-opacity", "1");
+            homeStage.style.setProperty("--logo-y", "0px");
+            homeStage.style.setProperty("--logo-scale", "1");
+            homeStage.style.setProperty("--intro-opacity", "1");
+            homeStage.style.setProperty("--intro-y", "0px");
+            return;
+        }
+
+        const scrollRange = Math.max(1, homeSequence.offsetHeight - window.innerHeight);
+        const sequenceTop = homeSequence.getBoundingClientRect().top;
+        homeScrollProgress = clampProgress(-sequenceTop / scrollRange);
+
+        // Begin after a small scroll, finish before the midpoint, then hold the
+        // intro calmly until the page releases into the Work section.
+        const rawTransition = clampProgress((homeScrollProgress - 0.04) / 0.39);
+        const eased = rawTransition * rawTransition * (3 - 2 * rawTransition);
+
+        homeStage.style.setProperty("--logo-opacity", String(1 - eased));
+        homeStage.style.setProperty("--logo-y", `${-44 * eased}px`);
+        homeStage.style.setProperty("--logo-scale", String(1 - 0.025 * eased));
+        homeStage.style.setProperty("--intro-opacity", String(eased));
+        homeStage.style.setProperty("--intro-y", `${22 * (1 - eased)}px`);
+        homeStage.classList.toggle("is-intro-visible", eased > 0.06);
+    };
+
+    const updatePaletteHintVisibility = () => {
+        if (!paletteHint || !homeSequence || !contactSection) return;
+
+        // Keep the hint hidden while the pinned hero/intro metadata is still
+        // on screen. Reveal it only once Selected Work has clearly entered the
+        // viewport, so it cannot collide with "Based in Ahmedabad".
+        const workSectionReached = workHeader
+            ? workHeader.getBoundingClientRect().top <= window.innerHeight * 0.78
+            : homeSequence.getBoundingClientRect().bottom <= window.innerHeight * 0.88;
+
+        const contactBottomReached =
+            window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4 &&
+            contactSection.getBoundingClientRect().bottom <= window.innerHeight + 8;
+
+        paletteHint.classList.toggle(
+            "is-visible",
+            workSectionReached && !contactBottomReached
+        );
+    };
+
+    const updateScrollDrivenElements = () => {
+        if (scrollUpdatePending) return;
+        scrollUpdatePending = true;
+        window.requestAnimationFrame(() => {
+            updateHomeSequence();
+            updatePaletteHintVisibility();
+        });
+    };
+
+    updateHomeSequence();
+    updatePaletteHintVisibility();
+    window.addEventListener("scroll", updateScrollDrivenElements, { passive: true });
+    window.addEventListener("resize", updateScrollDrivenElements);
+    if (typeof reducedMotion.addEventListener === "function") {
+        reducedMotion.addEventListener("change", updateScrollDrivenElements);
     }
 
     // The intro runs once per browser tab. Reduced-motion users skip it entirely.

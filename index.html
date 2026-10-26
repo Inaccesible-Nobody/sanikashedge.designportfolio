@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sanika Shedge — Interaction Designer</title>
+    <title>Sanika Shedge — Interaction & Product Designer</title>
+    <meta name="description" content="Sanika Shedge is an interaction designer working across research, digital products and physical experiences.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,8 +92,12 @@
 
     <main>
 
-        <!-- HERO -->
-        <section class="hero" id="home">
+        <!-- Scroll-linked opening: the wordmark gives way to the short introduction. -->
+        <section class="home-intro-sequence" id="home" aria-label="Portfolio introduction">
+          <div class="home-intro-stage">
+
+        <!-- HERO / WORDMARK STATE -->
+        <section class="hero" aria-label="Portfolio wordmark">
 
             <!-- Main wordmark -->
             <div class="hero-center">
@@ -120,10 +125,6 @@
                 <span>SCROLL TO EXPLORE ↓</span>
             </div>
 
-            <div class="palette-hint" aria-label="Open keyword search with Control K or Command K">
-                <span class="palette-hint-label">Keyword Search?</span>
-                <span class="palette-hint-shortcut">ctrl + k <span>or</span> ⌘ + k</span>
-            </div>
 
         </section>
 
@@ -132,31 +133,20 @@
         <section id="about" class="intro">
 
             <div class="intro-header">
-                <!-- <span>INTRODUCTION</span> -->
-                <span>ABOUT</span>
+                <span>A LITTLE ABOUT ME</span>
             </div>
 
             <div class="intro-main">
 
                 <h2>
-                    An interaction designer exploring the intersection of
-                    digital interfaces, physical experiences, and creative technology.
+                    I design interactions that make complex systems easier to navigate.
                 </h2>
 
                 <div class="intro-side">
 
                     <p>
-                        My work moves between UI/UX, research, creative technology,
-                        and immersive experiences, with a focus on making
-                        interactions feel intuitive, meaningful and memorable.
+                        I move between research, digital products and physical experiences, looking for what people need and where systems get in their way.
                     </p>
-
-                    <div class="intro-tags">
-                        <span>UI/UX •</span>
-                        <span>Interaction Design •</span>
-                        <span>Creative Technology •</span>
-                        <span>Research</span>
-                    </div>
 
                     <a
                         href="docs/Resume.pdf"
@@ -164,8 +154,8 @@
                         target="_blank"
                         rel="noopener"
                     >
-                        DOWNLOAD RESUME
-                        <span>↗</span>
+                        VIEW RESUME
+                        <span aria-hidden="true">↗</span>
                     </a>
 
                 </div>
@@ -174,15 +164,21 @@
 
         </section>
 
+          </div><!-- /.home-intro-stage -->
+        </section><!-- /.home-intro-sequence -->
+
+        <div class="palette-hint" aria-label="Open keyword search with Control K or Command K">
+            <span class="palette-hint-label">Keyword Search?</span>
+            <span class="palette-hint-shortcut">ctrl + k <span>or</span> ⌘ + k</span>
+        </div>
 
    <!-- WORK HEADER -->
 <div id="work" class="work-gallery-header">
-    <p class="section-label">SELECTED WORK</p>
-
-    <p class="work-gallery-note">
-        A selection of projects exploring interaction design,
-        research, systems, and digital experiences.
-    </p>
+    <div class="work-gallery-heading">
+        <h3 class="work-section-title">Selected work<span aria-hidden="true">.</span></h3>
+        <!-- <span class="work-gallery-count">01 — 04</span> -->
+    </div>
+    <p class="work-gallery-note">Four projects exploring how people navigate products, information and everyday decisions.</p>
 </div>
 
     <!-- PROJECT GALLERY -->
@@ -195,7 +191,7 @@
         >
             <div class="gallery-image">
                 <img
-                    src="Images\synkro.jpg"
+                    src="Images/synkro.jpg"
                     alt="Synkro — event discovery and vendor participation platform"
                 >
             </div>
@@ -203,6 +199,7 @@
             <div class="gallery-card">
                 <h3>Synkro</h3>
                 <p>UI/UX · Service Design</p>
+                <span class="gallery-summary">A two-sided event platform for organisers and small vendors.</span>
             </div>
         </a>
 
@@ -221,6 +218,7 @@
             <div class="gallery-card">
                 <h3>Jamalpur Flower Market</h3>
                 <p>Research · Systems Design · Field Study</p>
+                <span class="gallery-summary">A field study of the relationships shaping a wholesale flower market.</span>
             </div>
         </a>
 
@@ -231,7 +229,7 @@
         >
             <div class="gallery-image">
                 <img
-                    src="Images\aqi.png"
+                    src="Images/aqi.png"
                     alt="Humanizing AQI project"
                 >
             </div>
@@ -239,6 +237,7 @@
             <div class="gallery-card">
                 <h3>Humanizing AQI</h3>
                 <p>Information · UX · Research</p>
+                <span class="gallery-summary">Making air-quality data easier to read and interpret.</span>
             </div>
         </a>
 
@@ -249,7 +248,7 @@
         >
             <div class="gallery-image">
                 <img
-                    src="Images\viral-siyappa.jpg"
+                    src="Images/viral-siyappa.jpg"
                     alt="Viral Siyappa misinformation board game"
                 >
             </div>
@@ -257,6 +256,7 @@
             <div class="gallery-card">
                 <h3>Viral Siyappa</h3>
                 <p>Game Design · Systems</p>
+                <span class="gallery-summary">A cooperative game about forwards, group decisions and consequences.</span>
             </div>
         </a>
 
@@ -266,7 +266,7 @@
 <div class="client-work" id="client-work">
 
     <div class="client-work-intro">
-        <span>SELECTED CLIENT WORK</span>
+        <h3 class="work-section-title">Selected Client Work<span aria-hidden="true">.</span></h3>
 
         <p>
             Selected client work completed during my time at Aarambh Socials.
