@@ -1,312 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Viral Siyappa is a cooperative tabletop game created during a 48-hour Game for Change sprint. Players experience how social-media forwards become collective decisions and consequences.">
-  <title>Viral Siyappa - Sanika Shedge</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Work+Sans:wght@400;500;600;700&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="viral-siyappa.css">
-  <script src="viral-siyappa.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Viral Siyappa is a cooperative tabletop game created during a 48-hour Game for Change sprint. Players experience how social-media forwards become collective decisions and consequences." name="description"/>
+<title>Viral Siyappa — Sanika Shedge</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&amp;family=Work+Sans:wght@400;500;600;700&amp;family=Anton&amp;display=swap" rel="stylesheet"/>
+<link href="viral-siyappa.css" rel="stylesheet"/>
+<script defer="" src="viral-siyappa.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="site-header">
-    <a class="wordmark" href="../../../index.html" aria-label="Back to portfolio home">SANIKA SHEDGE<span> / DESIGN PORTFOLIO</span></a>
-    <a class="back-link" href="../../../index.html#work">Back to selected work <span aria-hidden="true">↗</span></a>
-  </header>
-
-  <main id="main-content">
-    <section class="case-hero section-wrap" id="top" aria-labelledby="page-title">
-      <p class="eyebrow"><span>GAME DESIGN</span><span>·</span><span>SYSTEMS DESIGN</span><span>·</span><span>INTERACTION DESIGN</span></p>
-      <div class="hero-layout">
-        <div class="hero-copy">
-          <p class="case-label">CASE STUDY / 04</p>
-          <h1 id="page-title"><span class="title-main">VIRAL</span><span class="title-script">Siyappa</span></h1>
-          <p class="hero-summary">A forward is easy. Living with its consequence is not.</p>
-          <p class="hero-description">Created by a five-designer team in a 48-hour Game for Change jam, Viral Siyappa turns a familiar habit into a timed group decision: skim a mixed feed, pass cards along, argue for one lead, and reveal what the group's choice sets in motion.</p>
-        </div>
-        <img class="hero-art" src="Images/viral-siyappa.jpg" alt="Viral Siyappa tabletop game setup">
-      </div>
-      <div class="metadata">
-        <div><span class="meta-label">ROLE</span><p>Game Designer · Visual Designer · Sprint Coordinator</p></div>
-        <div><span class="meta-label">TEAM</span><p>5 designers</p></div>
-        <div><span class="meta-label">DURATION</span><p>48 hours</p></div>
-        <div><span class="meta-label">TOOLS</span><p>Figma · Photoshop · Illustrator</p></div>
-      </div>
-    </section>
-
-        <nav class="section-nav" aria-label="Case study sections">
-      <a href="#context">The problem</a>
-      <a href="#challenge">Design challenge</a>
-      <a href="#intent">Design decisions</a>
-      <a href="#system">Game loop</a>
-      <a href="#components">Components</a>
-      <a href="#gameplay">Play a round</a>
-      <a href="#process">Prototype & testing</a>
-      <a href="#final-game">Final game</a>
-      <a href="#reflection">Reflection</a>
-    </nav>
-
-            <section class="content-section section-wrap" id="context">
-      <div class="section-number">01 / THE PROBLEM</div>
-      <div class="section-content">
-        <h2>During a crisis, everything can arrive in the same feed.</h2>
-        <p class="lead">COVID-19 made the stakes of forwarded information feel immediate: advice, rumours, scams and news clips could travel through the same chats and social feeds.</p>
-        <p>We started from a behaviour people recognised. A WhatsApp forward, an Instagram post, a tweet or a news segment could all arrive with the same urgency, even when the quality of the information was very different. Claims about home remedies such as <em>kadha</em> sat alongside public-health updates and speculation. The problem was not simply access to information; it was how quickly people could accept, act on and pass it along.</p>
-        <p>For the Game for Change brief, we wanted to turn that habit into something players could feel. Instead of giving them a lecture about fact-checking, the game makes them choose under pressure, forward information to others and face a shared outcome.</p>
-        <div class="brief-grid">
-          <article class="brief-card"><span class="note-label">INTENDED PLAYERS</span><p>People familiar with social media and group chats, especially those who remember the information overload around COVID-19. The format is a cooperative tabletop experience for a small group.</p></article>
-          <article class="brief-card"><span class="note-label">INTENDED IMPACT</span><p>Build awareness of how unchecked information can spread, shape decisions and leave someone dealing with the consequences. The game was designed to prompt reflection, not to measure behaviour change.</p></article>
-        </div>
-        <div class="channel-strip" aria-label="Information formats represented in the game">
-          <span>WhatsApp forwards</span><span>Instagram posts</span><span>Tweets</span><span>News clips</span><span>Rumours &amp; scams</span>
-        </div>
-        <div class="context-note warm-note"><span class="note-label">WHERE THE NAME CAME FROM</span><p><strong>Viral</strong> refers to how quickly a message can spread. <strong>Siyappa</strong> is Punjabi colloquial slang for a mess or commotion. The name came after the concept: a viral mess created when information travels faster than it is judged.</p></div>
-      </div>
-    </section>
-    <section class="content-section section-wrap" id="challenge">
-      <div class="section-number">02 / DESIGN CHALLENGE</div>
-      <div class="section-content">
-        <h2>Make the act of forwarding playable.</h2>
-        <p class="lead">The game had to make uncertainty, social pressure and shared responsibility tangible without turning into a fact-checking quiz with one obvious answer.</p>
-        <div class="challenge-panel">
-          <span class="note-label">DESIGN QUESTION</span>
-          <p>How might a cooperative game help players notice how they select, forward and act on information when there's pressure to respond quickly?</p>
-        </div>
-        <div class="challenge-contrast" aria-label="The challenge moves from uncertainty to a shared outcome">
-          <div><span>01</span><strong>Skim the feed</strong><small>Mixed formats and uneven credibility.</small></div>
-          <div class="contrast-arrow" aria-hidden="true">→</div>
-          <div><span>02</span><strong>Forward a lead</strong><small>Each player passes on what seems useful.</small></div>
-          <div class="contrast-arrow" aria-hidden="true">→</div>
-          <div><span>03</span><strong>Own the outcome</strong><small>The group lives with one shared choice.</small></div>
-        </div>
-        <div class="ideation-filter">
-          <div class="ideation-heading"><span class="note-label">48-HOUR SPRINT / IDEA SELECTION</span><p>We didn't land on Viral Siyappa immediately. As a team of five, we sketched three or four other directions, then used a quick pros-and-cons list to compare the idea, its mechanics and what we could realistically make in the time available.</p></div>
-          <div class="ideation-steps" aria-label="How the team selected the concept">
-            <div><span>01</span><strong>3–4 other ideas</strong><small>Explore different responses to the Game for Change brief.</small></div>
-            <b aria-hidden="true">→</b>
-            <div><span>02</span><strong>Pros, cons &amp; mechanics</strong><small>Check the premise and whether the game could be made playable in 48 hours.</small></div>
-            <b aria-hidden="true">→</b>
-            <div class="ideation-selected"><span>03</span><strong>Viral Siyappa</strong><small>Commit to a concept with a clear action, shared decision and visible consequence.</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<a aria-label="Back to portfolio home" class="wordmark" href="../../../index.html">SANIKA SHEDGE<span> / DESIGN PORTFOLIO</span></a>
+<a class="back-link" href="../../../index.html#work">Back to selected work <span aria-hidden="true">↗</span></a>
+</header>
+<main id="main-content">
+<section aria-labelledby="page-title" class="case-hero section-wrap" id="top">
+<p class="eyebrow"><span>GAME DESIGN</span><span>·</span><span>SYSTEMS DESIGN</span><span>·</span><span>INTERACTION DESIGN</span></p>
+<div class="hero-layout">
+<div class="hero-copy">
+<p class="case-label">CASE STUDY / 04</p>
+<h1 id="page-title"><span class="title-main">VIRAL</span><span class="title-script">Siyappa</span></h1>
+<p class="hero-summary">A forward is easy. Living with its consequence is not.</p>
+<p class="hero-description">Created by a five-designer team in a 48-hour Game for Change jam, Viral Siyappa turns a familiar habit into a timed group decision: skim a mixed feed, pass cards along, argue for one lead, and reveal what the group's choice sets in motion.</p>
+</div>
+<img alt="Viral Siyappa tabletop game setup" class="hero-art" src="Images/viral-siyappa.jpg"/>
+</div>
+<div class="metadata">
+<div><span class="meta-label">ROLE</span><p>Game Designer · Visual Designer · Sprint Coordinator</p></div>
+<div><span class="meta-label">TEAM</span><p>5 designers</p></div>
+<div><span class="meta-label">DURATION</span><p>48 hours</p></div>
+<div><span class="meta-label">TOOLS</span><p>Figma · Photoshop · Illustrator</p></div>
+</div>
+</section>
+<nav aria-label="Case study sections" class="section-nav"><a href="#context">The problem</a><a href="#challenge">Design challenge</a><a href="#intent">Design decisions</a><a href="#system">Game loop</a><a href="#components">Components</a><a href="#rulebook">Rulebook</a><a href="#process">Prototype &amp; testing</a><a href="#final-game">Final game</a><a href="#reflection">Reflection</a></nav>
+<section class="content-section section-wrap" id="context">
+<div class="section-number">01 / THE PROBLEM</div>
+<div class="section-content">
+<h2>During a crisis, everything can arrive in the same feed.</h2>
+<p class="lead">COVID-19 made the stakes of forwarded information feel immediate: advice, rumours, scams and news clips could travel through the same chats and social feeds.</p>
+<p>We started from a behaviour people recognised. A WhatsApp forward, an Instagram post, a tweet or a news segment could all arrive with the same urgency, even when the quality of the information was very different. Claims about home remedies such as <em>kadha</em> sat alongside public-health updates and speculation. The problem was not simply access to information; it was how quickly people could accept, act on and pass it along.</p>
+<p>For the Game for Change brief, we wanted to turn that habit into something players could feel. Instead of giving them a lecture about fact-checking, the game makes them choose under pressure, forward information to others and face a shared outcome.</p>
+<div class="brief-grid">
+<article class="brief-card"><span class="note-label">INTENDED PLAYERS</span><p>People familiar with social media and group chats, especially those who remember the information overload around COVID-19. The format is a cooperative tabletop experience for a small group.</p></article>
+<article class="brief-card"><span class="note-label">INTENDED IMPACT</span><p>Build awareness of how unchecked information can spread, shape decisions and leave someone dealing with the consequences. The game was designed to prompt reflection, not to measure behaviour change.</p></article>
+</div>
+<div aria-label="Information formats represented in the game" class="channel-strip">
+<span>WhatsApp forwards</span><span>Instagram posts</span><span>Tweets</span><span>News clips</span><span>Rumours &amp; scams</span>
+</div>
+<div class="context-note warm-note"><span class="note-label">WHERE THE NAME CAME FROM</span><p><strong>Viral</strong> refers to how quickly a message can spread. <strong>Siyappa</strong> is Punjabi colloquial slang for a mess or commotion. The name came after the concept: a viral mess created when information travels faster than it is judged.</p></div>
+</div>
+</section>
+<section class="content-section section-wrap" id="challenge">
+<div class="section-number">02 / DESIGN CHALLENGE</div>
+<div class="section-content">
+<h2>Make the act of forwarding playable.</h2>
+<p class="lead">The game had to make uncertainty, social pressure and shared responsibility tangible without turning into a fact-checking quiz with one obvious answer.</p>
+<div class="challenge-panel">
+<span class="note-label">DESIGN QUESTION</span>
+<p>How might a cooperative game help players notice how they select, forward and act on information when there's pressure to respond quickly?</p>
+</div>
+<div aria-label="The challenge moves from uncertainty to a shared outcome" class="challenge-contrast">
+<div><span>01</span><strong>Skim the feed</strong><small>Mixed formats and uneven credibility.</small></div>
+<div aria-hidden="true" class="contrast-arrow">→</div>
+<div><span>02</span><strong>Forward a lead</strong><small>Each player passes on what seems useful.</small></div>
+<div aria-hidden="true" class="contrast-arrow">→</div>
+<div><span>03</span><strong>Own the outcome</strong><small>The group lives with one shared choice.</small></div>
+</div>
+<div class="ideation-filter">
+<div class="ideation-heading"><span class="note-label">48-HOUR SPRINT / IDEA SELECTION</span><p>We didn't land on Viral Siyappa immediately. As a team of five, we sketched three or four other directions, then used a quick pros-and-cons list to compare the idea, its mechanics and what we could realistically make in the time available.</p></div>
+<div aria-label="How the team selected the concept" class="ideation-steps">
+<div><span>01</span><strong>3–4 other ideas</strong><small>Explore different responses to the Game for Change brief.</small></div>
+<b aria-hidden="true">→</b>
+<div><span>02</span><strong>Pros, cons &amp; mechanics</strong><small>Check the premise and whether the game could be made playable in 48 hours.</small></div>
+<b aria-hidden="true">→</b>
+<div class="ideation-selected"><span>03</span><strong>Viral Siyappa</strong><small>Commit to a concept with a clear action, shared decision and visible consequence.</small></div>
+</div>
+</div>
+</div>
+</section>
 <section class="intent-section">
-      <div class="section-wrap content-section" id="intent">
-        <div class="section-number">03 / DESIGN DECISIONS</div>
-        <div class="section-content">
-          <h2>The mechanics make the metaphor physical.</h2>
-          <p class="lead">Each rule mirrors a familiar part of the misinformation chain, from receiving a message to accepting collective responsibility for the result.</p>
-          <div class="intent-grid">
-            <article><span>01 / MOTIVE CARD</span><h3>Give the group one urgent problem.</h3><p>The Motive Card frames a scenario that needs a response. It gives every player the same goal while leaving the best response open to debate.</p></article>
-            <article><span>02 / PASS LEFT</span><h3>Make forwarding the rule.</h3><p>After choosing a card, players pass the remaining hand to the left. The information keeps moving, and each player makes the next choice from a different set.</p></article>
-            <article><span>03 / CHAT BOARD + CHART</span><h3>Make the group answer for one choice.</h3><p>The Chat Board makes the options visible. The Consequence Chart reveals whether the card the group backs leads to a solution or a ridiculous failure.</p></article>
-          </div>
-          <div class="context-note warm-note"><span class="note-label">WHY COOPERATIVE?</span><p>Misinformation moves between people, not just between screens. Passing cards left turns forwarding into a physical action; the shared vote then makes the group responsible for what it chooses to believe and pass on.</p></div>
-        </div>
-      </div>
-    </section>
+<div class="section-wrap content-section" id="intent">
+<div class="section-number">03 / DESIGN DECISIONS</div>
+<div class="section-content">
+<h2>The mechanics make the metaphor physical.</h2>
+<p class="lead">Each rule mirrors a familiar part of the misinformation chain, from receiving a message to accepting collective responsibility for the result.</p>
+<div class="intent-grid">
+<article><span>01 / MOTIVE CARD</span><h3>Give the group one urgent problem.</h3><p>The Motive Card frames a scenario that needs a response. It gives every player the same goal while leaving the best response open to debate.</p></article>
+<article><span>02 / PASS LEFT</span><h3>Make forwarding the rule.</h3><p>After choosing a card, players pass the remaining hand to the left. The information keeps moving, and each player makes the next choice from a different set.</p></article>
+<article><span>03 / CHAT BOARD + CHART</span><h3>Make the group answer for one choice.</h3><p>The Chat Board makes the options visible. The Consequence Chart reveals whether the card the group backs leads to a solution or a ridiculous failure.</p></article>
+</div>
+<div class="context-note warm-note"><span class="note-label">WHY COOPERATIVE?</span><p>Misinformation moves between people, not just between screens. Passing cards left turns forwarding into a physical action; the shared vote then makes the group responsible for what it chooses to believe and pass on.</p></div>
+</div>
+</div>
+</section>
 
-            <section class="system-section section-wrap" id="system">
-      <div class="section-number">04 / GAME LOOP</div>
-      <div class="system-main">
-        <div class="system-heading"><h2>Receive. Forward. Agree. Face the outcome.</h2><p>Four phases turn a stream of mixed information into one public choice. The illustrations below mirror the rule pamphlet: a quick visual cue, then a short explanation of what players do and why it matters.</p></div>
-        <div class="loop-diagram" aria-label="Illustrated game loop: The Panic, The Forward, Consensus and The Verdict">
-          <article class="loop-phase loop-panic">
-            <div class="loop-phase-top"><span>PHASE 01</span><b>3 MIN</b></div>
-            <svg class="loop-visual" viewBox="0 0 220 118" role="img" aria-label="A hand of cards is passed to the next player while three chosen cards are kept">
-              <g fill="#fff" stroke="#343a63" stroke-width="1.8">
-                <rect x="13" y="24" width="37" height="51" rx="2" transform="rotate(-12 31 49)"/><rect x="31" y="17" width="37" height="51" rx="2" transform="rotate(-2 49 42)"/><rect x="51" y="22" width="37" height="51" rx="2" transform="rotate(10 69 48)"/>
-                <rect x="139" y="29" width="27" height="39" rx="2" transform="rotate(-8 152 48)"/><rect x="153" y="36" width="27" height="39" rx="2" transform="rotate(4 166 55)"/><rect x="168" y="31" width="27" height="39" rx="2" transform="rotate(12 181 50)"/>
-              </g>
-              <path d="M88 48 C105 28 119 30 130 47" fill="none" stroke="#3349a2" stroke-width="2.5" stroke-linecap="round"/><path d="M123 38 L131 48 L118 49" fill="none" stroke="#3349a2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 91 H91" stroke="#b9bfdb" stroke-width="1.5" stroke-dasharray="3 4"/><text x="16" y="106" font-size="9" fill="#5a5e74">PASS THE REST LEFT</text>
-              <text x="145" y="88" font-size="9" fill="#3349a2">KEEP 3</text>
-            </svg>
-            <h3>The Panic</h3>
-            <p>Pick one of the 10 cards that could answer the Motive Card. Keep it face-down, pass the rest left, and repeat until you have three selected cards.</p>
-            <div class="loop-why"><b>Why it matters</b><span>Passing left turns forwarding into a physical habit, while the timer creates pressure to choose.</span></div>
-          </article>
-          <article class="loop-phase loop-forward">
-            <div class="loop-phase-top"><span>PHASE 02</span><b>1 MIN</b></div>
-            <svg class="loop-visual" viewBox="0 0 220 118" role="img" aria-label="Each player picks one of three selected cards and places it on the shared Chat Board">
-              <g stroke="#343a63" stroke-width="1.8"><rect x="12" y="18" width="25" height="37" rx="2" fill="#fff" transform="rotate(-8 24 36)"/><rect x="25" y="14" width="25" height="37" rx="2" fill="#fff"/><rect x="40" y="18" width="25" height="37" rx="2" fill="#dfe4f6" transform="rotate(8 52 36)"/></g>
-              <path d="M67 42 H103" stroke="#3349a2" stroke-width="2.5" stroke-linecap="round"/><path d="M96 35 L104 42 L96 49" fill="none" stroke="#3349a2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="115" y="14" width="91" height="84" rx="4" fill="#fff" stroke="#343a63" stroke-width="2"/><path d="M115 31 H206" stroke="#343a63" stroke-width="1.5"/><circle cx="124" cy="22" r="2" fill="#ed2b32"/><circle cx="131" cy="22" r="2" fill="#e2b33f"/><circle cx="138" cy="22" r="2" fill="#6a8d60"/>
-              <rect x="129" y="42" width="22" height="31" fill="#fff" stroke="#343a63" stroke-width="1.5" transform="rotate(-8 140 57)"/><rect x="159" y="43" width="22" height="31" fill="#dfe4f6" stroke="#3349a2" stroke-width="1.5" transform="rotate(7 170 58)"/><text x="128" y="88" font-size="8" fill="#3349a2">CHAT BOARD</text>
-            </svg>
-            <h3>The Forward</h3>
-            <p>From your three selected cards, choose the one you think is strongest and place it face-up on the Chat Board: the game's main group chat.</p>
-            <div class="loop-why"><b>Why it matters</b><span>Individual judgements become visible options the whole group can compare.</span></div>
-          </article>
-          <article class="loop-phase loop-consensus">
-            <div class="loop-phase-top"><span>PHASE 03</span><b>TIMED DEBATE</b></div>
-            <svg class="loop-visual" viewBox="0 0 220 118" role="img" aria-label="Different players discuss cards on the shared board before voting on one final choice">
-              <rect x="59" y="23" width="102" height="76" rx="3" fill="#fff" stroke="#343a63" stroke-width="1.8" transform="rotate(-3 110 61)"/><path d="M67 40 H154" stroke="#b9bfdb" stroke-width="1.4"/><rect x="75" y="49" width="22" height="28" fill="#e4e7f4" stroke="#343a63" stroke-width="1.3" transform="rotate(-8 86 63)"/><rect x="107" y="51" width="20" height="25" fill="#fff" stroke="#343a63" stroke-width="1.3" transform="rotate(8 117 63)"/><path d="M82 85 H141" stroke="#343a63" stroke-width="1.3"/>
-              <path d="M14 24 Q14 13 26 13 H49 Q60 13 60 24 Q60 34 49 34 H38 L30 42 V34 H26 Q14 34 14 24Z" fill="#dfe4f6" stroke="#3349a2" stroke-width="1.4"/><circle cx="29" cy="24" r="2" fill="#3349a2"/><circle cx="37" cy="24" r="2" fill="#3349a2"/><circle cx="45" cy="24" r="2" fill="#3349a2"/>
-              <circle cx="184" cy="78" r="21" fill="#fff" stroke="#343a63" stroke-width="1.8"/><path d="M184 78 L184 57 A21 21 0 0 1 203 89 Z" fill="#ed2b32"/><path d="M184 78 L203 89 A21 21 0 0 1 165 89 Z" fill="#dfe4f6"/><text x="164" y="112" font-size="8" fill="#3349a2">VOTE</text>
-            </svg>
-            <h3>Consensus</h3>
-            <p>Debate the options on the board. Players explain, challenge and convince until everyone can commit to one final card before time runs out.</p>
-            <div class="loop-why"><b>Why it matters</b><span>The decision becomes collective, not just the opinion of whoever spoke first.</span></div>
-          </article>
-          <article class="loop-phase loop-verdict">
-            <div class="loop-phase-top"><span>PHASE 04</span><b>REVEAL</b></div>
-            <svg class="loop-visual" viewBox="0 0 220 118" role="img" aria-label="The chosen card is matched to the consequence chart, which branches to success or failure">
-              <rect x="20" y="11" width="75" height="91" rx="2" fill="#fff" stroke="#343a63" stroke-width="1.8"/><path d="M30 28 H85 M30 40 H79 M30 52 H85 M30 64 H69" stroke="#b9bfdb" stroke-width="2"/><rect x="31" y="72" width="22" height="19" fill="#dfe4f6" stroke="#343a63" stroke-width="1.2"/><path d="M99 56 H122 V35 H137 M122 56 V82 H137" fill="none" stroke="#3349a2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M131 29 L138 35 L131 41 M131 76 L138 82 L131 88" fill="none" stroke="#3349a2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="143" y="19" width="63" height="32" rx="3" fill="#eaf3e6" stroke="#6e9565" stroke-width="1.3"/><text x="154" y="39" font-size="10" font-weight="600" fill="#477642">SUCCESS ✓</text><rect x="143" y="66" width="63" height="32" rx="3" fill="#fae9e6" stroke="#ed2b32" stroke-width="1.3"/><text x="155" y="86" font-size="10" font-weight="600" fill="#b02a2e">FAILURE ×</text>
-            </svg>
-            <h3>The Verdict</h3>
-            <p>Flip the Chat Board and match the chosen card number to the Consequence Chart. The group discovers whether its response helps or makes the situation worse.</p>
-            <div class="loop-why"><b>Why it matters</b><span>The consequence makes the cost of a careless forward visible-and often absurd.</span></div>
-          </article>
-        </div>
-        <div class="loop-takeaway"><span class="note-label">THE DESIGN LOGIC</span><p><strong>Private filtering → public debate → shared consequence.</strong> The game doesn't stop at asking “Which card looks right?” It asks the group to defend a choice, commit to it, and see what happens next.</p></div>
-      </div>
-    </section>
-<section class="content-section section-wrap" id="components">
-      <div class="section-number">05 / GAME COMPONENTS</div>
-      <div class="section-content">
-        <h2>Each component has a job in the system.</h2>
-        <p>The physical pieces make incoming information, shared context and consequences distinct.</p>
-        <div class="component-gallery">
-          <figure class="component-feature">
-            <div class="component-image-frame component-feature-image"><img class="component-image" src="Images/Cards/news-cards.png" alt="Printed Viral Siyappa news cards arranged together, presenting a mix of news reports, social posts and forwarded messages for players to evaluate in this tabletop game."></div>
-            <figcaption><span>50 CARDS</span><strong>News cards</strong><p>A mixed feed of claims and possible leads, from helpful information to rumours and scams.</p></figcaption>
-          </figure>
-          <figure>
-            <div class="component-image-frame ratio-card"><img class="component-image" src="Images/Cards/motive-cards.png" alt="Viral Siyappa motive cards showing player scenarios and shared goals."></div>
-            <figcaption><span>3 CARDS</span><strong>Motive cards</strong><p>A scenario establishes the common goal for the group.</p></figcaption>
-          </figure>
-          <figure>
-            <div class="component-image-frame ratio-board"><img class="component-image" src="Images/Cards/board-consequences.png" alt="Viral Siyappa chat board alongside the consequence chart used to reveal the group's outcome."></div>
-            <figcaption><span>1 DOUBLE-SIDED BOARD</span><strong>Chat board</strong><p>Selected news is forwarded to a shared space; the reverse reveals the corresponding consequence.</p></figcaption>
-          </figure>
-          <figure>
-            <div class="component-image-frame ratio-board"><img class="component-image" src="Images/Cards/Consequnces.png" alt="Printed consequence chart listing outcomes tied to cards selected during the game."></div>
-            <figcaption><span>1 CHART</span><strong>Consequence chart</strong><p>Checks the final card and makes the result of the group's choice visible.</p></figcaption>
-          </figure>
-        </div>
-        <div class="component-footnote"><span>ALSO REQUIRED</span><p>A timer, using a phone, keeps the selection and consensus phases moving.</p></div>
-      </div>
-    </section>
+<section aria-labelledby="loop-heading" class="integrated-loop section-wrap" id="system">
+<div class="section-number">04 / GAME LOOP</div>
+<header class="loop-section-heading">
+<h2 id="loop-heading">How the siyappa unfolds.</h2>
+<p>One situation. A chain of forwards. One shared consequence. Select a phase to explore the action and design intent.</p>
+</header>
+<div class="loop-stage">
+<div class="loop-visual-column">
+<div class="loop-diagram-label"><span>THE ROUTE OF A FORWARD</span><span>01 → 04</span></div>
+<div aria-label="Select a phase of the game loop" class="loop-orbit" data-active-phase="panic" role="tablist">
+<svg aria-hidden="true" class="loop-orbit-arrows" focusable="false" viewbox="0 0 400 400">
+<defs>
+<marker id="loop-arrowhead" markerheight="7" markerwidth="7" orient="auto" refx="5.5" refy="3.5">
+<path d="M0,0 L7,3.5 L0,7 Z" fill="#a7aecb"></path>
+</marker>
+<marker id="loop-arrowhead-active" markerheight="7" markerwidth="7" orient="auto" refx="5.5" refy="3.5">
+<path d="M0,0 L7,3.5 L0,7 Z" fill="#3349a2"></path>
+</marker>
+</defs>
+<path class="flow-path flow-to-forward" d="M239 61 C286 69 322 104 338 149" marker-end="url(#loop-arrowhead)"></path>
+<path class="flow-path flow-to-consensus" d="M338 251 C321 296 285 326 239 339" marker-end="url(#loop-arrowhead)"></path>
+<path class="flow-path flow-to-verdict" d="M161 339 C115 325 80 295 62 251" marker-end="url(#loop-arrowhead)"></path>
+</svg>
+<div aria-hidden="true" class="loop-center">
+<span class="loop-center-kicker">THE SHARED SPACE</span>
+<strong>CHAT<br/>BOARD</strong>
+<div class="loop-center-cards"><i></i><i></i><i></i></div>
+<small>one choice, together</small>
+</div>
+<button aria-controls="loop-panel-panic" aria-selected="true" class="loop-node loop-node-panic is-active" data-loop-phase="panic" id="loop-node-panic" role="tab" tabindex="0" type="button">
+<span class="loop-node-top"><span>01</span><span>3 MIN</span></span><strong>The Panic</strong><small>Pick + pass</small>
+</button>
+<button aria-controls="loop-panel-forward" aria-selected="false" class="loop-node loop-node-forward" data-loop-phase="forward" id="loop-node-forward" role="tab" tabindex="-1" type="button">
+<span class="loop-node-top"><span>02</span><span>1 MIN</span></span><strong>The Forward</strong><small>Select + share</small>
+</button>
+<button aria-controls="loop-panel-consensus" aria-selected="false" class="loop-node loop-node-consensus" data-loop-phase="consensus" id="loop-node-consensus" role="tab" tabindex="-1" type="button">
+<span class="loop-node-top"><span>03</span><span>TIMED</span></span><strong>Consensus</strong><small>Debate + decide</small>
+</button>
+<button aria-controls="loop-panel-verdict" aria-selected="false" class="loop-node loop-node-verdict" data-loop-phase="verdict" id="loop-node-verdict" role="tab" tabindex="-1" type="button">
+<span class="loop-node-top"><span>04</span><span>REVEAL</span></span><strong>The Verdict</strong><small>Choice → outcome</small>
+</button>
+<span aria-hidden="true" class="loop-flow-card"><span>FWD</span></span>
+</div>
+<p class="loop-visual-caption"><span aria-hidden="true">↳</span> The cards move. The responsibility stays with the group.</p>
+</div>
+<div class="loop-detail-column">
+<div class="loop-detail-top"><span class="note-label">PLAY A ROUND / RULES AT A GLANCE</span><span aria-hidden="true" class="loop-detail-index">01—04</span></div>
+<div aria-atomic="true" aria-live="polite" class="loop-panels">
+<article aria-labelledby="loop-node-panic" class="loop-panel is-active" data-loop-panel="panic" id="loop-panel-panic" role="tabpanel">
+<span class="loop-phase-kicker">PHASE 01 / 3 MINUTES</span>
+<h3>Filter through the noise.</h3>
+<p class="loop-panel-intro">Everyone starts with the same Motive Card: one shared problem that needs a response.</p>
+<ol class="loop-steps">
+<li><span>01</span><p>Scan your hand of 10 news cards and choose one that might solve the situation. Keep it face-down.</p></li>
+<li><span>02</span><p>Pass the remaining hand to the player on your left.</p></li>
+<li><span>03</span><p>Choose again from the new hand. Repeat until you have three selected cards.</p></li>
+</ol>
+<div class="loop-insight"><span class="note-label">WHY THIS MECHANIC</span><p>Passing makes forwarding physical; the timer pressures players to choose before they've fully examined every claim.</p></div>
+</article>
+<article aria-labelledby="loop-node-forward" class="loop-panel" data-loop-panel="forward" hidden="" id="loop-panel-forward" role="tabpanel">
+<span class="loop-phase-kicker">PHASE 02 / 1 MINUTE</span>
+<h3>Put one lead into the group chat.</h3>
+<p class="loop-panel-intro">Players narrow their private shortlist to one message the whole group can see.</p>
+<ol class="loop-steps">
+<li><span>01</span><p>Choose the strongest of your three selected cards.</p></li>
+<li><span>02</span><p>Place it face-up on the Chat Board, the game's shared group chat.</p></li>
+</ol>
+<div class="loop-insight"><span class="note-label">WHY THIS MECHANIC</span><p>Private judgement becomes public influence. Everyone now has to respond to the same visible set of forwards.</p></div>
+</article>
+<article aria-labelledby="loop-node-consensus" class="loop-panel" data-loop-panel="consensus" hidden="" id="loop-panel-consensus" role="tabpanel">
+<span class="loop-phase-kicker">PHASE 03 / TIMED DISCUSSION</span>
+<h3>Debate, persuade, agree.</h3>
+<p class="loop-panel-intro">The board is full of possible answers, but the group can take only one forward.</p>
+<ol class="loop-steps">
+<li><span>01</span><p>Discuss the cards on the Chat Board. Challenge claims and explain why your choice seems right.</p></li>
+<li><span>02</span><p>Agree on one final card before the timer runs out.</p></li>
+</ol>
+<div class="loop-insight"><span class="note-label">WHY THIS MECHANIC</span><p>The outcome belongs to the group, not just the person who picked a card or spoke the loudest.</p></div>
+</article>
+<article aria-labelledby="loop-node-verdict" class="loop-panel" data-loop-panel="verdict" hidden="" id="loop-panel-verdict" role="tabpanel">
+<span class="loop-phase-kicker">PHASE 04 / CONSEQUENCE CHART</span>
+<h3>The forward comes back to the group.</h3>
+<p class="loop-panel-intro">The round doesn't end at a vote. The selected card has a printed outcome attached to it.</p>
+<ol class="loop-steps">
+<li><span>01</span><p>Flip the Chat Board and find the chosen card's number in the Consequence Chart.</p></li>
+<li><span>02</span><p>Read the verdict: the group either wins with a verified solution or loses through a negative, often absurd outcome.</p></li>
+</ol>
+<div class="loop-outcomes">
+<div class="loop-outcome-success"><span>✓</span><div><strong>Success</strong><small>A verified solution</small></div></div>
+<div class="loop-outcome-failure"><span>×</span><div><strong>Failure</strong><small>A harmful or bizarre result</small></div></div>
+</div>
+<div class="loop-insight"><span class="note-label">WHY THIS MECHANIC</span><p>The consequence gives the group's decision a visible cost and creates a moment to reflect on what was forwarded.</p></div>
+</article>
+</div>
+<div class="loop-detail-footer"><span>THE DESIGN LOGIC</span><strong>Private filtering → public debate → shared consequence.</strong></div>
+</div>
+</div>
+</section><section class="content-section section-wrap" id="components">
+<div class="section-number">05 / GAME COMPONENTS</div>
+<div class="section-content">
+<h2>Each component has a job in the system.</h2>
+<p>The physical pieces make incoming information, shared context and consequences distinct.</p>
+<div class="component-gallery">
+<figure class="component-feature">
+<div class="component-image-frame component-feature-image"><img alt="Printed Viral Siyappa news cards arranged together, presenting a mix of news reports, social posts and forwarded messages for players to evaluate in this tabletop game." class="component-image" src="Images/Cards/news-cards.png"/></div>
+<figcaption><span>50 CARDS</span><strong>News cards</strong><p>A mixed feed of claims and possible leads, from helpful information to rumours and scams.</p></figcaption>
+</figure>
+<figure>
+<div class="component-image-frame ratio-card"><img alt="Viral Siyappa motive cards showing player scenarios and shared goals." class="component-image" src="Images/Cards/motive-cards.png"/></div>
+<figcaption><span>3 CARDS</span><strong>Motive cards</strong><p>A scenario establishes the common goal for the group.</p></figcaption>
+</figure>
+<figure>
+<div class="component-image-frame ratio-board"><img alt="Viral Siyappa chat board alongside the consequence chart used to reveal the group's outcome." class="component-image" src="Images/Cards/board-consequences.png"/></div>
+<figcaption><span>1 DOUBLE-SIDED BOARD</span><strong>Chat board</strong><p>Selected news is forwarded to a shared space; the reverse reveals the corresponding consequence.</p></figcaption>
+</figure>
+<figure>
+<div class="component-image-frame ratio-board"><img alt="Printed consequence chart listing outcomes tied to cards selected during the game." class="component-image" src="Images/Cards/Consequnces.png"/></div>
+<figcaption><span>1 CHART</span><strong>Consequence chart</strong><p>Checks the final card and makes the result of the group's choice visible.</p></figcaption>
+</figure>
+</div>
+<div class="component-footnote"><span>ALSO REQUIRED</span><p>A timer, using a phone, keeps the selection and consensus phases moving.</p></div>
+</div>
+</section>
 
-    <section class="gameplay-section" id="gameplay">
-      <div class="section-wrap">
-        <div class="section-heading"><div class="section-number">06 / HOW TO PLAY</div><h2>Three phases. One final decision.</h2><p>Explore the rules from the first card selection to the final consequence.</p></div>
-        <div class="gameplay-layout">
-          <div class="phase-tabs" role="tablist" aria-label="Gameplay phases">
-            <button type="button" class="phase-tab is-active" id="phase-tab-panic" role="tab" aria-selected="true" aria-controls="phase-panel-panic" data-phase="panic"><span>01</span><strong>The Panic</strong><small>3 minutes</small></button>
-            <button type="button" class="phase-tab" id="phase-tab-forward" role="tab" aria-selected="false" aria-controls="phase-panel-forward" data-phase="forward"><span>02</span><strong>The Forward</strong><small>1 minute</small></button>
-            <button type="button" class="phase-tab" id="phase-tab-consensus" role="tab" aria-selected="false" aria-controls="phase-panel-consensus" data-phase="consensus"><span>03</span><strong>Consensus</strong><small>Timed debate</small></button>
-            <button type="button" class="phase-tab" id="phase-tab-verdict" role="tab" aria-selected="false" aria-controls="phase-panel-verdict" data-phase="verdict"><span>04</span><strong>The Verdict</strong><small>Reveal outcome</small></button>
-          </div>
-          <div class="phase-panel-wrap">
-            <article class="phase-panel is-active" role="tabpanel" id="phase-panel-panic" aria-labelledby="phase-tab-panic" data-phase-panel="panic">
-              <span class="phase-kicker">PHASE 01 / 3 MINUTES</span><h3>Filter through the noise.</h3>
-              <p>Each player starts with a 10-card hand. Choose one that might address the shared motive, keep it face-down, pass the remaining hand to the left, and choose again from the new hand. Repeat until each player has three selected cards. The passing mechanic deliberately echoes forwarding a message.</p>
-              <div class="phase-callout"><strong>What this creates</strong><span>Selection is a trade-off: keep the lead you want, then decide again with a different hand.</span></div>
-            </article>
-            <article class="phase-panel" role="tabpanel" id="phase-panel-forward" aria-labelledby="phase-tab-forward" data-phase-panel="forward" hidden>
-              <span class="phase-kicker">PHASE 02 / 1 MINUTE · THE GROUP CHAT</span><h3>Forward the strongest lead.</h3>
-              <p>Within one minute, each player chooses the strongest of their three selected cards and places it face-up on the Chat Board. Individual judgements become the shared set of leads the whole group can inspect.</p>
-              <div class="phase-callout"><strong>What changes</strong><span>The group can compare leads side by side, rather than relying on one player's hand.</span></div>
-            </article>
-            <article class="phase-panel" role="tabpanel" id="phase-panel-consensus" aria-labelledby="phase-tab-consensus" data-phase-panel="consensus" hidden>
-              <span class="phase-kicker">PHASE 03 / TIMED DISCUSSION</span><h3>Discuss, debate and agree.</h3>
-              <p>The group discusses the face-up cards, questions which lead best addresses the motive and agrees on one final card before the timer runs out.</p>
-              <div class="phase-callout"><strong>What matters</strong><span>The team must commit to one shared response before the timer runs out.</span></div>
-            </article>
-            <article class="phase-panel" role="tabpanel" id="phase-panel-verdict" aria-labelledby="phase-tab-verdict" data-phase-panel="verdict" hidden>
-              <span class="phase-kicker">THE VERDICT / CONSEQUENCE CHART</span><h3>The choice has an outcome.</h3>
-              <p>Flip the Chat Board and match the chosen card number to the Consequence Chart. A useful response can win the group the game; a harmful or misleading choice can lead to a bizarre failure. The humour is part of how the consequence lands.</p>
-              <div class="verdict-pair"><div><span class="success-mark">✓</span><strong>Success</strong><small>Verified solution</small></div><div><span class="failure-mark">×</span><strong>Failure</strong><small>Negative consequence</small></div></div>
-            </article>
-          </div>
-          <button class="rulebook-trigger" type="button" aria-label="Open an enlarged view of the Viral Siyappa rulebook" aria-haspopup="dialog">
-            <img class="rulebook-image" src="Images/RuleBoook.jpg" alt="Viral Siyappa rulebook">
-          </button>
-        </div>
-        <p class="small-note gameplay-note">The exact outcome depends on the card chosen and its entry in the printed Consequence Chart. The interface here explains the rules; it is not a playable digital version of the board game.</p>
-      </div>
-    </section>
-    <dialog class="rulebook-dialog" aria-label="Viral Siyappa rulebook">
-      <button class="rulebook-close" type="button" aria-label="Close enlarged rulebook">×</button>
-      <img src="Images/RuleBoook.jpg" alt="Viral Siyappa rulebook, enlarged">
-    </dialog>
-        <section class="content-section section-wrap process-section" id="process">
-      <div class="section-number">07 / PROTOTYPE &amp; TESTING</div>
-      <div class="section-content">
-        <h2>The prototype changed the pace, not just the polish.</h2>
-        <p class="lead">Five designers, 48 hours, and three rounds of playtesting to get the core loop working.</p>
-        <p>We first compared three or four concepts against the Game for Change theme with a quick pros-and-cons list and a check of each idea’s mechanics. Once we chose Viral Siyappa, we prototyped the loop with paper cards and a board before committing to the final visual system.</p>
-        <div class="process-timeline">
-          <article><span>01</span><div><strong>Compare directions</strong><p>Compare three or four alternative concepts with a pros-and-cons list, checking the premise and mechanic feasibility against a 48-hour deadline.</p></div></article>
-          <article><span>02</span><div><strong>Make the loop playable</strong><p>Use paper cards, a Motive Card and a board to test selection, passing, discussion and outcome reveal before visual polish.</p></div></article>
-          <article><span>03</span><div><strong>Playtest and tune the pace</strong><p>Run three playtest rounds and watch whether the rules created the urgency the concept needed.</p></div></article>
-          <article><span>04</span><div><strong>Build the printed kit</strong><p>Bring the social-feed cards, Motive Cards, Chat Board, Consequence Chart and rule pamphlet into one visual system.</p></div></article>
-        </div>
-        <div class="testing-record">
-          <div><span class="note-label">WHAT PLAYTESTING CHANGED</span><p>The earliest version had no timer. Players spent too long weighing options, which weakened the panic and urgency the game was meant to create. We introduced a time limit for selection and rewrote the Motive Card narratives so each scenario called for a quick response.</p></div>
-          <div><span class="note-label">WHAT I WOULD TEST NEXT</span><p>Capture the exact moments players hesitate, whether the left-pass mechanic is clear without facilitation, and how players explain their final vote. I would also check whether the consequence feels fair, funny and understandable-not just surprising.</p></div>
-        </div>
-      </div>
-      <div class="process-evidence-grid">
-        <figure><img class="process-evidence-image ratio-process" src="Images/paper-prototype.jpg" alt="Early paper prototype laid out on a table during game development"><figcaption>PAPER PROTOTYPE / MECHANICS BEFORE POLISH</figcaption></figure>
-        <figure><img class="process-evidence-image ratio-process" src="Images/Playtesting.jpg" alt="Players gathered around the table during a Viral Siyappa playtest"><figcaption>PLAYTESTING / THREE ROUNDS</figcaption></figure>
-        <figure><img class="process-evidence-image ratio-process" src="Images/IMG-20261022-WA0003.jpg" alt="Group of players discussing cards during a Viral Siyappa session"><figcaption>IN USE / GROUP DISCUSSION</figcaption></figure>
-      </div>
-    </section>
 
-        <section class="final-game-section" id="final-game">
-      <div class="section-wrap">
-        <div class="section-heading"><div class="section-number">08 / FINAL GAME</div><h2>A printable kit built around one shared decision.</h2><p>The finished system turns a familiar social-media habit into a cooperative, timed loop: pick, pass, debate and face the consequence of one shared choice.</p></div>
-        <div class="final-asset-grid">
-          <figure class="final-feature"><img class="final-component-image ratio-final-large" src="Images/viral-siyappa.jpg" alt="Viral Siyappa final game overview showing printed card designs and the visual system. Focus is on the printed kit and its component relationships."><figcaption><span>01 / THE SYSTEM</span><p>The card set, board and visual language are designed to work as one experience.</p></figcaption></figure>
-          <div class="final-secondary">
-            <figure><img class="final-component-image ratio-final-small" src="Images/Cards/cards-on-table.png" alt="Viral Siyappa printed news cards arranged together on a table."><figcaption><span>02 / THE INFORMATION STREAM</span><p>Different formats sit together, asking players to judge what is relevant and trustworthy.</p></figcaption></figure>
-            <figure><img class="final-component-image ratio-final-small" src="Images/Cards/Consequnces.png" alt="Viral Siyappa printed consequence chart with numbered possible outcomes."><figcaption><span>03 / THE CONSEQUENCE CHART</span><p>The final choice is checked against a printed outcome rather than ending at the vote.</p></figcaption></figure>
-          </div>
-        </div>
-        <div class="final-game-cta-wrap">
-          <div class="final-game-cta-copy"><span class="note-label">TAKE A CLOSER LOOK</span><p>Explore the Viral Siyappa game page on itch.io.</p></div>
-          <a class="final-game-cta" href="https://sanikashedge.itch.io/viral-siyappa-a-viral-load-game" target="_blank" rel="noopener noreferrer">Visit the game on itch.io <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </section>
+<section aria-labelledby="rulebook-heading" class="rulebook-exhibit section-wrap" id="rulebook">
+<div class="section-number">06 / THE RULEBOOK</div>
+<div class="rulebook-layout">
+<div class="rulebook-copy">
+<span class="note-label">DESIGNING FOR A FAST READ</span>
+<h2 id="rulebook-heading">A rulebook players can scan mid-game.</h2>
+<p class="lead">The rules needed to be understood quickly, while the table was already full of cards, opinions and a ticking timer.</p>
+<div class="rulebook-principles">
+<article><span>01 / CHUNK THE PHASES</span><p>Blue frames separate each phase, making it easier to find the current step without reading the whole sheet again.</p></article>
+<article><span>02 / PAIR WORDS WITH ACTIONS</span><p>Short numbered instructions sit beside simple card and board diagrams, showing what to do as well as describing it.</p></article>
+<article><span>03 / MAKE THE VERDICT LEGIBLE</span><p>The final success/failure split makes the outcome of the group's choice explicit instead of leaving the round to fade out after the vote.</p></article>
+</div>
+<p class="rulebook-note">The sheet is shown as made. Click the spread to inspect the full-size artefact.</p>
+</div>
+<figure class="rulebook-figure">
+<button aria-haspopup="dialog" aria-label="Open an enlarged view of the Viral Siyappa rulebook" class="rulebook-trigger" type="button">
+<span class="rulebook-image-frame"><img alt="The Viral Siyappa rulebook, with a blue cover and four illustrated gameplay phases" class="rulebook-image" src="Images/RuleBoook.jpg"/></span>
+<span class="rulebook-open-label">INSPECT RULEBOOK <span aria-hidden="true">↗</span></span>
+</button>
+<figcaption><span>ARTIFACT / 01</span><span>RULES · TIMING · OUTCOME</span></figcaption>
+</figure>
+</div>
+</section><dialog aria-label="Viral Siyappa rulebook" class="rulebook-dialog">
+<button aria-label="Close enlarged rulebook" class="rulebook-close" type="button">×</button>
+<img alt="Viral Siyappa rulebook, enlarged" src="Images/RuleBoook.jpg"/>
+</dialog><section class="content-section section-wrap process-section" id="process">
+<div class="section-number">07 / PROTOTYPE &amp; TESTING</div>
+<div class="section-content">
+<h2>The prototype changed the pace, not just the polish.</h2>
+<p class="lead">Five designers, 48 hours, and three rounds of playtesting to get the core loop working.</p>
+<p>We first compared three or four concepts against the Game for Change theme with a quick pros-and-cons list and a check of each idea’s mechanics. Once we chose Viral Siyappa, we prototyped the loop with paper cards and a board before committing to the final visual system.</p>
+<div class="process-timeline">
+<article><span>01</span><div><strong>Compare directions</strong><p>Compare three or four alternative concepts with a pros-and-cons list, checking the premise and mechanic feasibility against a 48-hour deadline.</p></div></article>
+<article><span>02</span><div><strong>Make the loop playable</strong><p>Use paper cards, a Motive Card and a board to test selection, passing, discussion and outcome reveal before visual polish.</p></div></article>
+<article><span>03</span><div><strong>Playtest and tune the pace</strong><p>Run three playtest rounds and watch whether the rules created the urgency the concept needed.</p></div></article>
+<article><span>04</span><div><strong>Build the printed kit</strong><p>Bring the social-feed cards, Motive Cards, Chat Board, Consequence Chart and rule pamphlet into one visual system.</p></div></article>
+</div>
+<div class="testing-record">
+<div><span class="note-label">WHAT PLAYTESTING CHANGED</span><p>The earliest version had no timer. Players spent too long weighing options, which weakened the panic and urgency the game was meant to create. We introduced a time limit for selection and rewrote the Motive Card narratives so each scenario called for a quick response.</p></div>
+<div><span class="note-label">WHAT I WOULD TEST NEXT</span><p>Capture the exact moments players hesitate, whether the left-pass mechanic is clear without facilitation, and how players explain their final vote. I would also check whether the consequence feels fair, funny and understandable—not just surprising.</p></div>
+</div>
+</div>
+<div class="process-evidence-grid">
+<figure><img alt="Early paper prototype laid out on a table during game development" class="process-evidence-image ratio-process" src="Images/paper-prototype.jpg"/><figcaption>PAPER PROTOTYPE / MECHANICS BEFORE POLISH</figcaption></figure>
+<figure><img alt="Players gathered around the table during a Viral Siyappa playtest" class="process-evidence-image ratio-process" src="Images/Playtesting.jpg"/><figcaption>PLAYTESTING / THREE ROUNDS</figcaption></figure>
+<figure><img alt="Group of players discussing cards during a Viral Siyappa session" class="process-evidence-image ratio-process" src="Images/IMG-20261022-WA0003.jpg"/><figcaption>IN USE / GROUP DISCUSSION</figcaption></figure>
+</div>
+</section>
+<section class="final-game-section" id="final-game">
+<div class="section-wrap">
+<div class="section-heading"><div class="section-number">08 / FINAL GAME</div><h2>A printable kit built around one shared decision.</h2><p>The finished system turns a familiar social-media habit into a cooperative, timed loop: pick, pass, debate and face the consequence of one shared choice.</p></div>
+<div class="final-asset-grid">
+<figure class="final-feature"><img alt="Viral Siyappa final game overview showing printed card designs and the visual system. Focus is on the printed kit and its component relationships." class="final-component-image ratio-final-large" src="Images/viral-siyappa.jpg"/><figcaption><span>01 / THE SYSTEM</span><p>The card set, board and visual language are designed to work as one experience.</p></figcaption></figure>
+<div class="final-secondary">
+<figure><img alt="Viral Siyappa printed news cards arranged together on a table." class="final-component-image ratio-final-small" src="Images/Cards/cards-on-table.png"/><figcaption><span>02 / THE INFORMATION STREAM</span><p>Different formats sit together, asking players to judge what is relevant and trustworthy.</p></figcaption></figure>
+<figure><img alt="Viral Siyappa printed consequence chart with numbered possible outcomes." class="final-component-image ratio-final-small" src="Images/Cards/Consequnces.png"/><figcaption><span>03 / THE CONSEQUENCE CHART</span><p>The final choice is checked against a printed outcome rather than ending at the vote.</p></figcaption></figure>
+</div>
+</div>
+<div class="final-game-cta-wrap">
+<div class="final-game-cta-copy"><span class="note-label">TAKE A CLOSER LOOK</span><p>Explore the Viral Siyappa game page on itch.io.</p></div>
+<a class="final-game-cta" href="https://sanikashedge.itch.io/viral-siyappa-a-viral-load-game" rel="noopener noreferrer" target="_blank">Visit the game on itch.io <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</section>
+<section class="content-section section-wrap reflection-section" id="reflection">
+<div class="section-number">09 / REFLECTION</div>
+<div class="section-content">
+<p class="reflection-kicker">WHAT THE SPRINT TAUGHT ME</p>
+<blockquote>“The challenge wasn't generating ideas. It was deciding which ideas the system actually needed.”</blockquote>
+<p>Viral Siyappa taught me that the rules themselves can carry the message. Passing the hand left makes forwarding physical; the shared Chat Board turns personal judgement into a group position; and the Consequence Chart refuses to let the group stop at “we picked one.”</p>
+<p>The most concrete iteration came from pacing: without a timer, players considered options for too long and the intended urgency faded. Adding time pressure and sharpening the Motive Card scenarios helped bring the mechanic closer to the feeling the game was built around. I would document future playtests more systematically so every further change could be traced to a specific observation.</p>
+<div class="reflection-note"><span class="note-label">NEXT ITERATION</span><p>Test rule clarity, track hesitation points and record which edits follow from each observation. Then test whether players carry the central question beyond the table: what happens when we pass information on before checking it?</p></div>
+</div>
+</section>
+<section aria-labelledby="related-heading" class="related-work">
+<div class="related-work-inner section-wrap">
+<div class="related-heading"><span class="related-kicker">EXPLORE MORE WORK</span><h2 id="related-heading">More work</h2><p>Other projects across digital experiences, research and systems design.</p></div>
+<div class="related-links">
+<a class="related-item" href="../synkro_final/projects/synkro.html"><span class="related-number">01 / PRODUCT &amp; SERVICE DESIGN</span><span class="related-title">Synkro</span><span aria-hidden="true" class="related-arrow">↗</span></a>
+<a class="related-item" href="../Jamalpur/jamalpur.html"><span class="related-number">02 / FIELD RESEARCH &amp; SYSTEMS</span><span class="related-title">Jamalpur Flower Market</span><span aria-hidden="true" class="related-arrow">↗</span></a>
+<a class="related-item" href="../Aqi/aqi.html"><span class="related-number">03 / INFORMATION DESIGN &amp; PUBLIC HEALTH</span><span class="related-title">Humanizing AQI</span><span aria-hidden="true" class="related-arrow">↗</span></a>
+</div>
+</div>
+</section>
+</main>
+<div class="case-study-float-nav" aria-label="Page navigation">
+    <div class="case-study-float-nav__links">
+        <a class="case-study-float-nav__link"
+           href="/"
+           data-label="Home"
+           aria-label="Home"
+           title="Home">
+            <span aria-hidden="true">⌂</span>
+        </a>
 
-        <section class="content-section section-wrap reflection-section" id="reflection">
-      <div class="section-number">09 / REFLECTION</div>
-      <div class="section-content">
-        <p class="reflection-kicker">WHAT THE SPRINT TAUGHT ME</p>
-        <blockquote>“The challenge wasn't generating ideas. It was deciding which ideas the system actually needed.”</blockquote>
-        <p>Viral Siyappa taught me that the rules themselves can carry the message. Passing the hand left makes forwarding physical; the shared Chat Board turns personal judgement into a group position; and the Consequence Chart refuses to let the group stop at “we picked one.”</p>
-        <p>The most concrete iteration came from pacing: without a timer, players considered options for too long and the intended urgency faded. Adding time pressure and sharpening the Motive Card scenarios helped bring the mechanic closer to the feeling the game was built around. I would document future playtests more systematically so every further change could be traced to a specific observation.</p>
-        <div class="reflection-note"><span class="note-label">NEXT ITERATION</span><p>Test rule clarity, track hesitation points and record which edits follow from each observation. Then test whether players carry the central question beyond the table: what happens when we pass information on before checking it?</p></div>
-      </div>
-    </section>
+        <a class="case-study-float-nav__link"
+           href="/#work"
+           data-label="Work"
+           aria-label="Work"
+           title="Work">
+            <span aria-hidden="true">※</span>
+        </a>
+    </div>
 
-    <section class="related-work" aria-labelledby="related-heading">
-      <div class="related-work-inner section-wrap">
-        <div class="related-heading"><span class="related-kicker">EXPLORE MORE WORK</span><h2 id="related-heading">More work</h2><p>Other projects across digital experiences, research and systems design.</p></div>
-        <div class="related-links">
-          <a class="related-item" href="../synkro_final/projects/synkro.html"><span class="related-number">01 / PRODUCT &amp; SERVICE DESIGN</span><span class="related-title">Synkro</span><span class="related-arrow" aria-hidden="true">↗</span></a>
-          <a class="related-item" href="../Jamalpur/jamalpur.html"><span class="related-number">02 / FIELD RESEARCH &amp; SYSTEMS</span><span class="related-title">Jamalpur Flower Market</span><span class="related-arrow" aria-hidden="true">↗</span></a>
-          <a class="related-item" href="../Aqi/aqi.html"><span class="related-number">03 / INFORMATION DESIGN &amp; PUBLIC HEALTH</span><span class="related-title">Humanizing AQI</span><span class="related-arrow" aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
-  <footer class="site-footer">
-    <a class="wordmark" href="../../../index.html">SANIKA SHEDGE<span> / DESIGN PORTFOLIO</span></a>
-    <span class="footer-note">GAME DESIGN · SYSTEMS · INTERACTION</span>
-    <a href="../../../index.html" class="footer-top">Back to home</a>
-  </footer>
+    <button aria-label="Back to top"
+            class="back-to-top"
+            title="Back to top"
+            type="button">↑</button>
+</div>
+<footer class="site-footer">
+<a class="wordmark" href="../../../index.html">SANIKA SHEDGE<span> / DESIGN PORTFOLIO</span></a>
+<span class="footer-note">GAME DESIGN · SYSTEMS · INTERACTION</span>
+<a class="footer-top" href="../../../index.html">Back to home</a>
+</footer>
 </body>
 </html>

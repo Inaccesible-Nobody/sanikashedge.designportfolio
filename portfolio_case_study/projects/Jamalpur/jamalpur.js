@@ -161,11 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const backTop = document.querySelector('.back-top');
-    const updateBackTop = () => {
-        backTop?.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.7);
-    };
-    window.addEventListener('scroll', updateBackTop, { passive: true });
-    updateBackTop();
+    const floatingNav = backTop?.closest('.case-study-float-nav');
 
-    if (sections[0]) activateIndex(sections[0].id);
+const updateBackTop = () => {
+    const visible = window.scrollY > window.innerHeight * 0.7;
+
+    backTop?.classList.toggle('is-visible', visible);
+    floatingNav?.classList.toggle('is-visible', visible);
+};
 });
